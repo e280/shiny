@@ -24,3 +24,5 @@ export function themeViews(theme: CSSResult) {
 	}
 }
 
+export type ShinyViews = ReturnType<typeof themeViews>
+

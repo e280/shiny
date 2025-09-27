@@ -23,7 +23,7 @@ export default ssg.page(import.meta.url, async orb => ({
 	body: html`
 		<header>
 			<div>
-				<img class=icon alt="" src="/assets/favicon.png"/>
+				<img class=logo alt="" src="/assets/favicon.png"/>
 			</div>
 			<div>
 				<h1>
@@ -34,13 +34,11 @@ export default ssg.page(import.meta.url, async orb => ({
 		</header>
 
 		<section>
-			<p>shiny is a ui library for web apps.</p>
 			<p><a href="https://github.com/e280/shiny">github.com/e280/shiny</a></p>
+			<p>shiny is a ui library for web apps.</p>
 		</section>
 
-		<section>
-			<shiny-demo></shiny-demo>
-		</section>
+		<shiny-demo></shiny-demo>
 	`,
 }))
 

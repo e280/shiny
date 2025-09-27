@@ -3,11 +3,14 @@
 
 @layer vars {
 	:root {
-		--prime: #1eff00;
+		--bg: #333;
+		--color: #fffa;
+		--prime: #95ff7b;
 		--accent: #387d42;
-		--pill: #1276391a;
-		--bg: #0e2316;
 		--link: cyan;
+
+		--selection: white;
+		--selection-bg: #f70;
 	}
 }
 
@@ -21,9 +24,13 @@
 		scrollbar-color: #444 transparent;
 	}
 
+	:not(:defined) {
+		display: none;
+	}
+
 	::selection {
-		color: white;
-		background-color: #f70;
+		color: var(--selection);
+		background-color: var(--selection-bg);
 	}
 
 	::-webkit-scrollbar { width: 8px; }
@@ -53,55 +60,65 @@
 @layer page {
 	:root {
 		height: 100%;
-		font-size: 21px;
+		font-size: 16px;
 		font-family: sans-serif;
 
 		color-scheme: dark;
 		scrollbar-gutter: stable;
 
-		color: color-mix(in lch, var(--prime), #fff8 50%);
-		background: radial-gradient(
-			circle,
-			var(--bg),
-			color-mix(in lch, var(--bg), black 80%)
-		);
+		color: var(--color);
+		background: var(--bg);
+
+		text-shadow: 0.1em 0.1em 0.2em #0004;
 	}
 
 	body {
 		width: 100%;
 		min-height: 100%;
-		max-width: 32em;
+		max-width: 60em;
 		margin: auto;
 		padding: 1em;
 		padding-bottom: 6em;
 
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		gap: 1em;
 	}
 
-	.icon {
-		display: block;
-		width: 100%;
-		max-width: 24em;
-		max-height: 30vh;
-		object-fit: contain;
+	body > header {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 0.1em;
+
+		.logo {
+			display: block;
+			width: 3.2em;
+			padding: 0.5em;
+			object-fit: contain;
+		}
+
+		h1 {
+			font-size: 1.5em;
+			display: flex;
+			align-items: baseline;
+			gap: 0.5em;
+
+			small {
+				opacity: 0.9;
+				font-size: 0.7em;
+				font-weight: normal;
+			}
+		}
 	}
 
-	h1 {
+	body > section {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-	}
-
-	small {
-		opacity: 0.6;
-		font-size: 0.5em;
-	}
-
-	:not(:defined) {
-		display: none;
+		justify-content: center;
+		margin-bottom: 1em;
 	}
 }
 
