@@ -1,7 +1,9 @@
 
-import {ShinyBox} from "./box/component.js"
+import {ShinyCopy} from "./copy/component.js"
+import {ShinyExample} from "./example/component.js"
 
 export const components = {
-	ShinyBox,
+	ShinyCopy,
+	ShinyExample,
 }
 

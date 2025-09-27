@@ -9,7 +9,7 @@ import {ShinyElement} from "./framework.js"
 export function themeComponents(theme: CSSResult) {
 	return ob(components).map(C => class extends C {
 		theme = theme
-		static view = super.view.transmute((...props) => [theme, ...props] as any) as any
+		static view = super.view.transmute((...props: any[]) => [theme, ...props] as any) as any
 	}) as {
 		[K in keyof typeof components]: ComponentClass<
 			typeof ShinyElement,
