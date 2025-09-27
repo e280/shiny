@@ -1,7 +1,7 @@
 
 import {CSSResult} from "lit"
 import {DropFirst, ob} from "@e280/stz"
-import {ComponentClass, ViewProps} from "@e280/sly"
+import {ComponentClass, View, ViewProps} from "@e280/sly"
 
 import {components} from "./components.js"
 import {ShinyElement} from "./framework.js"
@@ -19,6 +19,8 @@ export function themeComponents(theme: CSSResult) {
 }
 
 export function themeViews(theme: CSSResult) {
-	return ob(themeComponents(theme)).map(C => C.view)
+	return ob(themeComponents(theme)).map(C => C.view) as {
+		[K in keyof typeof components]: View<DropFirst<ViewProps<(typeof components)[K]["view"]>>>
+	}
 }
 
