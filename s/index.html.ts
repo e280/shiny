@@ -31,6 +31,7 @@ export default ssg.page(import.meta.url, async orb => ({
 		<p><a href="https://github.com/e280/shiny">github.com/e280/shiny</a></p>
 
 		<shiny-box></shiny-box>
+		<div class=lz></div>
 	`,
 }))
 

@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"type": "module",
 	"main": "./x/index.js",
+	"sideEffects": false,
 	"exports": {
 		".": "./x/index.js"
 	},
@@ -13,7 +14,7 @@
 		"s"
 	],
 	"peerDependencies": {
-		"@e280/sly": "^0.2.0-20",
+		"@e280/sly": "^0.2.0-21",
 		"lit": "^3.3.1"
 	},
 	"dependencies": {

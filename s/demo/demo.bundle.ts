@@ -1,8 +1,9 @@
 
 import {dom} from "@e280/sly"
-import {mkComponents} from "../ui/components.js"
+import {themes} from "../themes/index.js"
+import {themeComponents} from "../ui/themers.js"
 
-dom.register(mkComponents())
+dom.register(themeComponents(themes.basic))
 
 console.log("✨ shiny")
 
