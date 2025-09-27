@@ -1,7 +1,7 @@
 
 import {CSSResult} from "lit"
 import {DropFirst, ob} from "@e280/stz"
-import {ComponentClass, View, ViewProps} from "@e280/sly"
+import {ComponentClass, ViewProps} from "@e280/sly"
 
 import {components} from "./components.js"
 import {ShinyElement} from "./framework.js"
