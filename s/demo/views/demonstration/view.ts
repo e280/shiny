@@ -8,39 +8,41 @@ import {basic} from "../../../themes/basic.css.js"
 
 export const Demonstration = view(use => (options: {
 		name: string
+		explain: Content
 		views: ShinyViews
 		exampleView: string
 		exampleComponent: string
 		content: Content
 	}) => {
 
-	use.name(`demo-${options.name}`)
+	use.name(options.name)
 	use.styles(basic, styleCss)
 
-	function codeblock(classname: string, code: string) {
+	function codeblock(heading: string, code: string) {
 		const cleanCode = untab(code).trim()
 		return html`
 			<div class=codeblock>
-				<code class="${classname}">${cleanCode}</code>
+				<div class=zone>
+					<h3>${heading}</h3>
+					<code>${cleanCode}</code>
+				</div>
 				${options.views.ShinyCopy(cleanCode)}
 			</div>
 		`
 	}
 
 	return html`
-		<div class=content part=content>
-			${options.content}
+		<div class=meta>
+			<h2>✨ ${options.name}</h2>
+			<div class=explain>${options.explain}</div>
+			<div class=codes>
+				${codeblock("sly view", options.exampleView)}
+				${codeblock("html web component", options.exampleComponent)}
+			</div>
 		</div>
 
-		<div class=meta>
-			<h2>${options.name}</h2>
-			<div class=explain>
-				<p>helps users click-to-copy text</p>
-			</div>
-			<div class=codes>
-				${codeblock("view", options.exampleView)}
-				${codeblock("component", options.exampleComponent)}
-			</div>
+		<div class=content part=content>
+			${options.content}
 		</div>
 	`
 })

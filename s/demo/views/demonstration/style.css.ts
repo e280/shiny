@@ -4,7 +4,7 @@ export default css`
 
 :host {
 	display: flex;
-	flex-wrap: wrap-reverse;
+	flex-wrap: wrap;
 
 	padding: 1em;
 	border-radius: 0.5em;
@@ -12,6 +12,7 @@ export default css`
 
 	background: #555;
 	box-shadow: 0.2em 0.3em 0.5em #0002;
+	border-top: 1px solid #fff4;
 }
 
 .meta {
@@ -31,18 +32,29 @@ export default css`
 		background: #0002;
 		border-radius: 0.3em;
 
-		code {
+		.zone {
 			flex: 1 1 auto;
-
-			display: block;
+			display: flex;
+			flex-direction: column;
 			padding: 0.5em;
-			white-space: pre;
-			text-wrap: wrap;
-			tab-size: 2;
 
-			font-size: 0.8em;
-			font-family: monospace;
-			color: #8f8;
+			h3 {
+				opacity: 0.4;
+				font-size: 0.7em;
+				font-weight: normal;
+				font-style: italic;
+			}
+
+			code {
+				display: block;
+				white-space: pre;
+				text-wrap: wrap;
+				tab-size: 2;
+
+				font-size: 0.8em;
+				font-family: monospace;
+				color: #8f8;
+			}
 		}
 
 		[view="shiny-copy"] {
@@ -59,7 +71,8 @@ export default css`
 	justify-content: center;
 	align-items: center;
 
-	border-radius: 0.5em;
+	padding: 1rem;
+	border-radius: 0.5rem;
 	border: 1px #fff4 dashed;
 }
 

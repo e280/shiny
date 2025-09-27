@@ -1,5 +1,5 @@
 
-import {css} from "lit"
+import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {themes} from "../themes/index.js"
 import {themeViews} from "../ui/themers.js"
@@ -15,15 +15,18 @@ dom.register({ShinyDemo: view.component(use => {
 			gap: 0.5em;
 		}
 
-		[view]::part(content) {
+		[view="shiny-copy"]::part(content) {
 			font-size: 3em;
 		}
 	`)
 
 	return [
 		Demonstration({
-			name: "copy",
 			views,
+			name: "shiny-copy",
+			explain: html`
+				<p>button for click-to-copy text</p>
+			`,
 			exampleView: `
 				ShinyCopy("hello world")
 			`,

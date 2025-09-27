@@ -21,21 +21,14 @@ export default ssg.page(import.meta.url, async orb => ({
 	},
 
 	body: html`
-		<header>
-			<div>
-				<img class=logo alt="" src="/assets/favicon.png"/>
-			</div>
-			<div>
-				<h1>
-					<strong>@e280/shiny</strong>
-					<small>v${orb.packageVersion()}</small>
-				</h1>
-			</div>
-		</header>
+		<h1>
+			<strong>✨ @e280/shiny</strong>
+			<small>v${orb.packageVersion()}</small>
+		</h1>
 
 		<section>
-			<p><a href="https://github.com/e280/shiny">github.com/e280/shiny</a></p>
-			<p>shiny is a ui library for web apps.</p>
+			<p>web ui library.</p>
+			<p><a href="https://github.com/e280/shiny#readme">readme.</a></p>
 		</section>
 
 		<shiny-demo></shiny-demo>

@@ -50,9 +50,9 @@ export class ShinyCopy extends (
 		}})()
 
 		return html`
-			<div data-status="${$status.get()}" @click="${click}">
+			<button data-status="${$status.get()}" @click="${click}">
 				${icon}
-			</div>
+			</button>
 		`
 	})
 	.component(class extends ShinyElement {
