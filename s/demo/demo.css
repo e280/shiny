@@ -5,8 +5,7 @@
 	:root {
 		--bg: #333;
 		--color: #fff;
-		--prime: #95ff7b;
-		--accent: #387d42;
+		--prime: #82ff84;
 		--link: cyan;
 
 		--selection: white;
@@ -95,9 +94,13 @@
 	h1 {
 		font-size: 1.5em;
 		display: flex;
-		align-items: baseline;
-		justify-content: center;
-		gap: 0.3em;
+		flex-direction: column;
+		text-align: center;
+
+		strong {
+			font-size: 1.5em;
+			color: var(--prime);
+		}
 
 		small {
 			opacity: 0.6;

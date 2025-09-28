@@ -43,6 +43,10 @@ export default css`
 	flex-direction: column;
 	gap: 0.5em;
 
+	h2 {
+		color: var(--prime);
+	}
+
 	.codes {
 		display: flex;
 		flex-direction: column;
@@ -53,6 +57,8 @@ export default css`
 		display: flex;
 		background: #0002;
 		border-radius: 0.3em;
+		border-bottom: 1px solid #fff2;
+		box-shadow: inset 0.2em 0.3em 2em #0004;
 
 		.zone {
 			flex: 1 1 auto;
@@ -95,7 +101,7 @@ export default css`
 
 	padding: 1rem;
 	border-radius: 0.5rem;
-	border: 1px #fff4 dashed;
+	border: 1px dashed #fff4;
 }
 
 `

@@ -12,7 +12,7 @@ dom.register({ShinyDemo: view.component(use => {
 		:host {
 			display: flex;
 			flex-direction: column;
-			gap: 0.5em;
+			gap: 1em;
 		}
 
 		[view="shiny-copy"]::part(content) {

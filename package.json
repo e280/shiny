@@ -1,7 +1,7 @@
 {
 	"name": "@e280/shiny",
 	"version": "0.1.0-0",
-	"description": "✨ ui web components",
+	"description": "✨ web ui components",
 	"license": "MIT",
 	"type": "module",
 	"main": "./x/index.js",
