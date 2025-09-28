@@ -10,10 +10,10 @@ export default css`
 	--drawer-height: auto;
 	--anim-duration: 200ms;
 	--blanket-bg: #1118;
-	--drawer-bg: #7778;
+	--blanket-backdrop-filter: blur(0.5em);
 }
 
-.plate {
+.shell {
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -27,7 +27,7 @@ export default css`
 		inset: 0;
 
 		background: var(--blanket-bg);
-		backdrop-filter: blur(0.5em);
+		backdrop-filter: var(--blanket-backdrop-filter);
 
 		will-change: opacity;
 		transition: all var(--anim-duration) ease;
@@ -43,37 +43,40 @@ export default css`
 		> * { pointer-events: all; }
 	}
 
-	[part="drawer"] {
+	[part="tray"] {
 		position: absolute;
 		top: 0;
-		height: var(--drawer-height);
-
-		xxx-background: var(--drawer-bg);
 		width: calc(100% - var(--button-size));
+		height: 100%;
 
 		opacity: 1;
 		transform: translateX(-100%);
 		will-change: opacity, transform;
 		transition: all var(--anim-duration) ease;
 
-		slot {
+		> slot {
 			display: block;
+			height: var(--drawer-height);
 			max-height: 100%;
 			overflow-y: auto;
 		}
 
-		button {
+		> button {
 			position: absolute;
 			top: 0;
 			left: 100%;
 
-			opacity: 0.8;
+			opacity: var(--inactive-opacity);
 			background: transparent;
 			border: none;
 			cursor: pointer;
 
 			&:is(:hover, :focus-visible) {
 				opacity: 1;
+			}
+
+			> slot {
+				display: contents;
 			}
 
 			svg {
@@ -83,7 +86,7 @@ export default css`
 		}
 	}
 
-	slot.content {
+	slot[name="plate"] {
 		display: block;
 		width: 100%;
 		height: 100%;
@@ -93,7 +96,7 @@ export default css`
 		[part="blanket"] {
 			opacity: 1;
 		}
-		[part="drawer"] {
+		[part="tray"] {
 			opacity: 1;
 			transform: translateX(0%);
 		}

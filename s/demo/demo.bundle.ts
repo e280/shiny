@@ -4,6 +4,7 @@ import {dom, view} from "@e280/sly"
 import {shiny} from "../shiny.js"
 import {basic} from "../themes/basic.css.js"
 import {Demonstration} from "./views/demonstration/view.js"
+import { makeLipsumDispenser } from "./utils/lipsum.js"
 
 const {views} = shiny({theme: basic})
 
@@ -12,6 +13,11 @@ const labels = {
 	view: "sly view",
 	css: "custom css",
 }
+
+const lipsum = (() => {
+	const dispenser = makeLipsumDispenser()
+	return () => dispenser.takeRandom()
+})()
 
 dom.register({ShinyDemo: view.component(use => {
 	use.styles(css`
@@ -42,6 +48,7 @@ dom.register({ShinyDemo: view.component(use => {
 						--good: #0f4;
 						--bad: #f40;
 						--invalid: #8888;
+						--inactive-opacity: 0.5;
 					}
 				`],
 			],
@@ -61,14 +68,14 @@ dom.register({ShinyDemo: view.component(use => {
 			snippets: [
 				[labels.html, `
 					<shiny-drawer button>
-						<div slot=drawer>example</div>
-						<section>lorem kettlebell..</section>
+						<header>example</header>
+						<section slot=plate>lorem kettlebell..</section>
 					</shiny-drawer>
 				`],
 				[labels.view, `
 					ShinyDrawer.props().children(html\`
-						<div slot=drawer>example</div>
-						<section>lorem kettlebell..</section>
+						<header>example</header>
+						<section slot=plate>lorem kettlebell..</section>
 					\`).render()
 				`],
 				[labels.css, `
@@ -77,20 +84,20 @@ dom.register({ShinyDemo: view.component(use => {
 						--drawer-height: auto;
 						--anim-duration: 200ms;
 						--blanket-bg: #1118;
-						--drawer-bg: #7778;
+						--blanket-backdrop-filter: blur(0.5em);
+						--inactive-opacity: 0.5;
 					}
 				`],
 			],
 			content: views.ShinyDrawer.props()
 				.children(html`
-					<div slot=drawer>
+					<header>
 						<h2>example drawer</h2>
 						<p>you can put any content in here.</p>
-						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
-					</div>
-					<section>
-						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
-						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+						<p class=lipsum>${lipsum()}</p>
+					</header>
+					<section slot=plate>
+						<p class=lipsum>${lipsum()}</p>
 					</section>
 				`)
 				.render(),
@@ -98,15 +105,32 @@ dom.register({ShinyDemo: view.component(use => {
 				.content sly-view {
 					border-radius: 0.5em;
 					overflow: hidden;
-					[slot="drawer"] {
+					--button-size: 3em;
+
+					p.lipsum {
+						opacity: 0.7;
+						font-family: serif;
+						font-style: italic;
+					}
+
+					header {
 						padding: 0.5em;
 						border-bottom-right-radius: 0.5em;
-						background: #fff4;
+						background: linear-gradient(
+							to top right,
+							#00a9dd69,
+							#70ffd77a
+						);
 						> * + * { margin-top: 0.5em; }
 					}
+
 					section {
-						padding: 0.5em;
-						padding-left: 2em;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						min-height: 100%;
+						padding: 1em;
+						padding-top: 3em;
 						> * + * { margin-top: 0.5em; }
 					}
 				}

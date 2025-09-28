@@ -9,7 +9,7 @@ button {
 }
 
 button {
-	opacity: 0.5;
+	opacity: var(--inactive-opacity);
 	cursor: pointer;
 	cursor: copy;
 

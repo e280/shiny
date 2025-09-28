@@ -78,6 +78,7 @@ export default css`
 				white-space: pre;
 				text-wrap: wrap;
 				tab-size: 2;
+				word-break: break-word;
 
 				font-size: 0.8em;
 				font-family: monospace;
