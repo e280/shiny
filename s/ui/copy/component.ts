@@ -1,8 +1,8 @@
 
+import {html} from "lit"
 import {debounce} from "@e280/stz"
 import {dom, view} from "@e280/sly"
 
-import {html} from "lit"
 import styleCss from "./style.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 import clipboardSvg from "../../icons/tabler/clipboard.svg.js"

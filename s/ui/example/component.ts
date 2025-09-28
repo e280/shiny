@@ -1,6 +1,6 @@
 
-import {dom, view} from "@e280/sly"
 import {html} from "lit"
+import {dom, view} from "@e280/sly"
 import styleCss from "./style.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
