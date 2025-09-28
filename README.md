@@ -16,7 +16,7 @@
 ## ✨ instant html installation
 - put this in your html `<head>`
     ```html
-    <script async src="https://shiny.e280.org/install.bundle.min.js"></script>
+    <script async src="https://shiny.e280.org/install/basic.bundle.min.js"></script>
     ```
 - you're ready to put shiny components in your html `<body>`
     ```html
