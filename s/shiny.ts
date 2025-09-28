@@ -1,7 +1,7 @@
 
 import {contextualizeComponents, getViews} from "@e280/sly"
-import {ShinyContext} from "./ui/framework.js"
-import {rawComponents} from "./ui/raw-components.js"
+import {ShinyContext} from "./components/framework.js"
+import {rawComponents} from "./components/raw-components.js"
 
 export function shiny(context: ShinyContext) {
 	const components = contextualizeComponents(context, rawComponents)
