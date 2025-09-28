@@ -1,8 +1,8 @@
 
 import {html} from "lit"
+import {untab} from "@e280/stz"
 import {Content, view} from "@e280/sly"
 import styleCss from "./style.css.js"
-import {untab} from "../../../tools/untab.js"
 import {ShinyViews} from "../../../ui/themers.js"
 import {basic} from "../../../themes/basic.css.js"
 
