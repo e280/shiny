@@ -71,7 +71,7 @@
 		--tint: #070429aa;
 		background:
 			linear-gradient(0deg, var(--tint), var(--tint)),
-			#141519 url("/assets/bg.webp") center 60% / cover no-repeat;
+			#141519 url("/assets/bg.webp") center 80% / cover no-repeat;
 
 		background-attachment: fixed, fixed;
 
@@ -100,6 +100,8 @@
 		strong {
 			font-size: 1.5em;
 			color: var(--prime);
+			color: color-mix(in oklab, white, var(--prime) 20%);
+			text-shadow: 0 0 0.8em color-mix(in oklab, white, var(--prime) 50%);
 		}
 
 		small {
