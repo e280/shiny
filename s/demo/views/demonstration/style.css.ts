@@ -15,7 +15,7 @@ export default css`
 	background: linear-gradient(to right top, #252dd985, #aa6affbd);
 	backdrop-filter: blur(0.5em);
 
-	box-shadow: 0.3em 0.5em 1em #0006;
+	box-shadow: 0 0 5em #5d1fadaa;
 	border-top: 2px solid #fff4;
 
 	&::before {

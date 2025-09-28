@@ -13,7 +13,7 @@ export default ssg.page(import.meta.url, async orb => ({
 	favicon,
 	dark: true,
 	socialCard: {
-		themeColor: "#aa6aff",
+		themeColor: "#d068ff",
 		title,
 		description,
 		siteName: "@e280/shiny",

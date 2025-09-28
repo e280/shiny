@@ -14,9 +14,7 @@ button {
 	cursor: copy;
 
 	color: inherit;
-	transition:
-		color 300ms linear,
-		opacity 300ms linear;
+	transition: all 300ms linear;
 
 	&:is(:hover, :focus-visible) {
 		opacity: 1;
@@ -30,11 +28,13 @@ button {
 [data-status="good"] {
 	opacity: 1;
 	color: var(--good);
+	filter: drop-shadow(0 0 0.3em color-mix(in oklab, transparent, currentColor 50%));
 }
 
 [data-status="bad"] {
 	opacity: 1;
 	color: var(--bad);
+	filter: drop-shadow(0 0 0.3em color-mix(in oklab, transparent, currentColor 50%));
 }
 
 svg {
