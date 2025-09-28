@@ -7,10 +7,12 @@ import menu2Svg from "../../icons/tabler/menu-2.svg.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyBurger extends (
-	view(use => (context: ShinyContext, providedBrain?: BurgerBrain) => {
+	view(use => (context: ShinyContext, options: {button?: boolean, brain?: BurgerBrain} = {}) => {
 		use.name("shiny-burger")
 		use.styles(context.theme, styleCss)
-		const brain = use.once(() => (providedBrain ?? new BurgerBrain()))
+
+		const button = options.button ?? true
+		const brain = use.once(() => (options.brain ?? new BurgerBrain()))
 
 		dom.attrs(use.element).booleans.open = brain.isOpen
 
@@ -23,11 +25,15 @@ export class ShinyBurger extends (
 
 					<div part=drawer>
 						<slot name=drawer ?inert="${!brain.isOpen}"></slot>
-						<button @click="${brain.toggle}">
-							<slot name=button>
-								${menu2Svg}
-							</slot>
-						</button>
+						${button
+							? html`
+								<button @click="${brain.toggle}">
+									<slot name=button>
+										${menu2Svg}
+									</slot>
+								</button>
+							`
+							: null}
 					</div>
 				</div>
 			</div>
@@ -35,8 +41,18 @@ export class ShinyBurger extends (
 	})
 	.component(class extends ShinyElement {
 		brain = new BurgerBrain()
-		attrs = dom.attrs(this).spec({open: Boolean})
+		get isOpen() { return this.brain.isOpen }
+		get toggle() { return this.brain.toggle }
+		get open() { return this.brain.open }
+		get close() { return this.brain.close }
+		attrs = dom.attrs(this).spec({
+			open: Boolean,
+			button: Boolean,
+		})
 	})
-	.props(el => [el.context, el.brain] as const)
+	.props(el => [el.context, {
+		brain: el.brain,
+		button: el.attrs.button,
+	}] as const)
 ) {}
 

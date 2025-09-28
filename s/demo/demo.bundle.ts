@@ -60,7 +60,7 @@ dom.register({ShinyDemo: view.component(use => {
 			`,
 			snippets: [
 				[labels.html, `
-					<shiny-burger>
+					<shiny-burger button>
 						<div slot=drawer>example</div>
 						<section>lorem kettlebell..</section>
 					</shiny-burger>
