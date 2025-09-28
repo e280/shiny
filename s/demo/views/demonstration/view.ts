@@ -10,8 +10,8 @@ export const Demonstration = view(use => (options: {
 		name: string
 		explain: Content
 		views: ShinyViews
-		exampleView: string
 		exampleComponent: string
+		exampleView: string
 		content: Content
 	}) => {
 
@@ -36,8 +36,8 @@ export const Demonstration = view(use => (options: {
 			<h2>✨ ${options.name}</h2>
 			<div class=explain>${options.explain}</div>
 			<div class=codes>
-				${codeblock("sly view", options.exampleView)}
 				${codeblock("html web component", options.exampleComponent)}
+				${codeblock("sly view", options.exampleView)}
 			</div>
 		</div>
 

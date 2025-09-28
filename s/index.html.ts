@@ -22,7 +22,7 @@ export default ssg.page(import.meta.url, async orb => ({
 
 	body: html`
 		<h1>
-			<strong>✨ @e280/shiny</strong>
+			<strong>✨shiny✨</strong>
 			<small>v${orb.packageVersion()}</small>
 		</h1>
 

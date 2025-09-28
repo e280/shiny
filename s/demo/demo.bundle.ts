@@ -27,16 +27,16 @@ dom.register({ShinyDemo: view.component(use => {
 			explain: html`
 				<p>button for click-to-copy text</p>
 			`,
-			exampleView: `
-				ShinyCopy("hello world")
-			`,
 			exampleComponent: `
 				<shiny-copy text="hello world"></shiny-copy>
+			`,
+			exampleView: `
+				ShinyCopy("hello world")
 			`,
 			content: views.ShinyCopy("hello world"),
 		}),
 	]
 })})
 
-console.log("✨ shiny")
+console.log("✨shiny")
 
