@@ -16,7 +16,7 @@ dom.register({ShinyDemo: view.component(use => {
 		}
 
 		[view="shiny-copy"]::part(content) {
-			font-size: 3em;
+			font-size: 4em;
 		}
 	`)
 

@@ -69,7 +69,14 @@
 		color: var(--color);
 		background: var(--bg);
 
-		text-shadow: 0.1em 0.1em 0.2em #0004;
+		--tint: #070429aa;
+		background:
+			linear-gradient(0deg, var(--tint), var(--tint)),
+			#141519 url("/assets/bg.webp") center 60% / cover no-repeat;
+
+		background-attachment: fixed, fixed;
+
+		text-shadow: 0.1em 0.1em 0.2em #0008;
 	}
 
 	body {
