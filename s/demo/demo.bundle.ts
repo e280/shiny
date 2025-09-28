@@ -54,25 +54,25 @@ dom.register({ShinyDemo: view.component(use => {
 		}),
 		Demonstration({
 			views,
-			name: "shiny-burger",
+			name: "shiny-drawer",
 			explain: html`
-				<p>slide-out drawer menu</p>
+				<p>slide-out panel with optional burger button</p>
 			`,
 			snippets: [
 				[labels.html, `
-					<shiny-burger button>
+					<shiny-drawer button>
 						<div slot=drawer>example</div>
 						<section>lorem kettlebell..</section>
-					</shiny-burger>
+					</shiny-drawer>
 				`],
 				[labels.view, `
-					ShinyBurger.props().children(html\`
+					ShinyDrawer.props().children(html\`
 						<div slot=drawer>example</div>
 						<section>lorem kettlebell..</section>
 					\`).render()
 				`],
 				[labels.css, `
-					shiny-burger {
+					shiny-drawer {
 						--button-size: 2em;
 						--drawer-height: auto;
 						--anim-duration: 200ms;
@@ -81,13 +81,11 @@ dom.register({ShinyDemo: view.component(use => {
 					}
 				`],
 			],
-			content: views.ShinyBurger.props()
+			content: views.ShinyDrawer.props()
 				.children(html`
 					<div slot=drawer>
 						<h2>example drawer</h2>
 						<p>you can put any content in here.</p>
-						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
-						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 					</div>
 					<section>
@@ -102,6 +100,8 @@ dom.register({ShinyDemo: view.component(use => {
 					overflow: hidden;
 					[slot="drawer"] {
 						padding: 0.5em;
+						border-bottom-right-radius: 0.5em;
+						background: #fff4;
 						> * + * { margin-top: 0.5em; }
 					}
 					section {

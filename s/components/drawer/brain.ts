@@ -1,7 +1,7 @@
 
 import {signal} from "@e280/strata"
 
-export class BurgerBrain {
+export class DrawerBrain {
 	$open = signal(false)
 
 	constructor(startOpen = false) {

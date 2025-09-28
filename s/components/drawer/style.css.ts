@@ -48,9 +48,8 @@ export default css`
 		top: 0;
 		height: var(--drawer-height);
 
-		background: var(--drawer-bg);
+		xxx-background: var(--drawer-bg);
 		width: calc(100% - var(--button-size));
-		height: 100%;
 
 		opacity: 1;
 		transform: translateX(-100%);
