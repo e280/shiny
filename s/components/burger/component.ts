@@ -40,15 +40,15 @@ export class ShinyBurger extends (
 		`
 	})
 	.component(class extends ShinyElement {
-		brain = new BurgerBrain()
-		get isOpen() { return this.brain.isOpen }
-		get toggle() { return this.brain.toggle }
-		get open() { return this.brain.open }
-		get close() { return this.brain.close }
 		attrs = dom.attrs(this).spec({
 			open: Boolean,
 			button: Boolean,
 		})
+		brain = new BurgerBrain(this.attrs.open)
+		get isOpen() { return this.brain.isOpen }
+		get toggle() { return this.brain.toggle }
+		get open() { return this.brain.open }
+		get close() { return this.brain.close }
 	})
 	.props(el => [el.context, {
 		brain: el.brain,

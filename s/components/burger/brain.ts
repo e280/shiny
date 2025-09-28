@@ -4,6 +4,10 @@ import {signal} from "@e280/strata"
 export class BurgerBrain {
 	$open = signal(false)
 
+	constructor(startOpen = false) {
+		if (startOpen) this.$open.set(true)
+	}
+
 	get isOpen() {
 		return this.$open.get()
 	}
