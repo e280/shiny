@@ -1,11 +1,11 @@
 
 import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
-import {themes} from "../themes/index.js"
-import {themeViews} from "../ui/themers.js"
+import {shiny} from "../shiny.js"
+import {basic} from "../themes/basic.css.js"
 import {Demonstration} from "./views/demonstration/view.js"
 
-const views = themeViews(themes.basic)
+const {views} = shiny({theme: basic})
 
 dom.register({ShinyDemo: view.component(use => {
 	use.styles(css`

@@ -2,7 +2,7 @@
 import {ShinyCopy} from "./copy/component.js"
 import {ShinyExample} from "./example/component.js"
 
-export const components = {
+export const rawComponents = {
 	ShinyCopy,
 	ShinyExample,
 }

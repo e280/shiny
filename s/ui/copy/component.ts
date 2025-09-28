@@ -2,17 +2,17 @@
 import {debounce} from "@e280/stz"
 import {dom, view} from "@e280/sly"
 
-import {CSSResult, html} from "lit"
+import {html} from "lit"
 import styleCss from "./style.css.js"
-import {ShinyElement} from "../framework.js"
+import {ShinyContext, ShinyElement} from "../framework.js"
 import clipboardSvg from "../../icons/tabler/clipboard.svg.js"
 import clipboardXFilledSvg from "../../icons/tabler/clipboard-x-filled.svg.js"
 import clipboardCheckFilledSvg from "../../icons/tabler/clipboard-check-filled.svg.js"
 
 export class ShinyCopy extends (
-	view(use => (theme: CSSResult, text: string | undefined, ms = 1000) => {
+	view(use => (context: ShinyContext, text: string | undefined, ms = 1000) => {
 		use.name("shiny-copy")
-		use.styles(theme, styleCss)
+		use.styles(context.theme, styleCss)
 
 		type Status = "neutral" | "good" | "bad" | "invalid"
 
@@ -61,6 +61,6 @@ export class ShinyCopy extends (
 			ms: Number,
 		})
 	})
-	.props(el => [el.theme, el.attrs.text, el.attrs.ms])
+	.props(el => [el.context, el.attrs.text, el.attrs.ms])
 ) {}
 
