@@ -8,6 +8,7 @@ import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyBurger extends (
 	view(use => (context: ShinyContext, providedBrain?: BurgerBrain) => {
+		use.name("shiny-burger")
 		use.styles(context.theme, styleCss)
 		const brain = use.once(() => (providedBrain ?? new BurgerBrain()))
 
@@ -18,10 +19,15 @@ export class ShinyBurger extends (
 				<slot class=content ?inert="${brain.isOpen}"></slot>
 
 				<div class=clipper>
-					<div class=blanket @click="${brain.close}"></div>
-					<div class=drawer>
-						<slot name=menu ?inert="${!brain.isOpen}"></slot>
-						<button @click="${brain.toggle}">${menu2Svg}</button>
+					<div part=blanket @click="${brain.close}" ?inert="${!brain.isOpen}"></div>
+
+					<div part=drawer>
+						<slot name=drawer ?inert="${!brain.isOpen}"></slot>
+						<button @click="${brain.toggle}">
+							<slot name=button>
+								${menu2Svg}
+							</slot>
+						</button>
 					</div>
 				</div>
 			</div>

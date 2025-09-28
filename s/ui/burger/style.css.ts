@@ -9,6 +9,8 @@ export default css`
 	--button-size: 2em;
 	--drawer-height: auto;
 	--anim-duration: 200ms;
+	--blanket-bg: #1118;
+	--drawer-bg: #7778;
 }
 
 .plate {
@@ -16,8 +18,7 @@ export default css`
 	width: 100%;
 	height: 100%;
 
-	.blanket {
-		pointer-events: none;
+	[part="blanket"] {
 		opacity: 0;
 
 		content: "";
@@ -25,43 +26,57 @@ export default css`
 		position: absolute;
 		inset: 0;
 
-		background: #0008;
+		background: var(--blanket-bg);
 		backdrop-filter: blur(0.5em);
+
 		will-change: opacity;
 		transition: all var(--anim-duration) ease;
 	}
 
 	.clipper {
-		position: absolute;
 		pointer-events: none;
+		position: absolute;
 		inset: 0;
 		width: 100%;
 		height: 100%;
 		overflow: hidden;
-
-		> * {
-			pointer-events: all;
-		}
+		> * { pointer-events: all; }
 	}
 
-	.drawer {
+	[part="drawer"] {
 		position: absolute;
 		top: 0;
 		height: var(--drawer-height);
 
+		background: var(--drawer-bg);
 		width: calc(100% - var(--button-size));
-		height: auto;
+		height: 100%;
 
-		background: #fff4;
-		will-change: transform, opacity;
+		opacity: 1;
+		transform: translateX(-100%);
+		will-change: opacity, transform;
 		transition: all var(--anim-duration) ease;
 
-		slot[name="menu"] {}
+		slot {
+			display: block;
+			max-height: 100%;
+			overflow-y: auto;
+		}
 
 		button {
 			position: absolute;
 			top: 0;
 			left: 100%;
+
+			opacity: 0.8;
+			background: transparent;
+			border: none;
+			cursor: pointer;
+
+			&:is(:hover, :focus-visible) {
+				opacity: 1;
+			}
+
 			svg {
 				width: var(--button-size);
 				height: var(--button-size);
@@ -76,15 +91,12 @@ export default css`
 	}
 
 	&[data-open] {
-		.blanket {
-			pointer-events: all;
+		[part="blanket"] {
 			opacity: 1;
 		}
-	}
-
-	&:not([data-open]) {
-		.drawer {
-			transform: translateX(-100%);
+		[part="drawer"] {
+			opacity: 1;
+			transform: translateX(0%);
 		}
 	}
 }

@@ -31,7 +31,7 @@ dom.register({ShinyDemo: view.component(use => {
 			`,
 			content: views.ShinyCopy("hello world"),
 			style: css`
-				[part="content"] {
+				.content sly-view {
 					font-size: 4em;
 				}
 			`,
@@ -43,30 +43,42 @@ dom.register({ShinyDemo: view.component(use => {
 				<p>slide-out drawer menu</p>
 			`,
 			exampleComponent: `
-				<shiny-burger></shiny-burger>
+				<shiny-burger>
+					<div slot=drawer>example</div>
+					<section>lorem kettlebell..</section>
+				</shiny-burger>
 			`,
 			exampleView: `
-				ShinyBurger()
+				ShinyBurger.props().children(html\`
+					<div slot=drawer>example</div>
+					<section>lorem kettlebell..</section>
+				\`).render()
 			`,
 			content: views.ShinyBurger.props()
 				.children(html`
-					<nav slot=menu>
-						<p>menu item 1</p>
-						<p>menu item 2</p>
-						<p>menu item 2</p>
-						<p>menu item 2</p>
-					</nav>
+					<div slot=drawer>
+						<h2>example drawer</h2>
+						<p>you can put any content in here.</p>
+						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+					</div>
 					<section>
-						<p>Lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. Adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. Ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 					</section>
 				`)
 				.render(),
 			style: css`
-				nav {
-					padding: 1em;
-				}
-				section {
-					padding-left: 2.5em;
+				.content sly-view {
+					border-radius: 0.5em;
+					overflow: hidden;
+					[slot="drawer"] {
+						padding: 0.5em;
+						> * + * { margin-top: 0.5em; }
+					}
+					section {
+						padding: 0.5em;
+						padding-left: 2em;
+					}
 				}
 			`,
 		}),

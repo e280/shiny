@@ -6,6 +6,7 @@ import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyExample extends (
 	view(use => (context: ShinyContext, start: number) => {
+		use.name("shiny-example")
 		use.styles(context.theme, styleCss)
 
 		const $count = use.signal(start)
