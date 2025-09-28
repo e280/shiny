@@ -82,6 +82,25 @@
 
 <br/><br/>
 
+## ✨ page-wide css customization
+- put this in your `<head>` and you can customize colors and stuff
+    ```html
+    <style>
+      :root {
+	      --shiny-bg: #111;
+	      --shiny-alpha: #afa;
+	      --shiny-good: #0f4;
+	      --shiny-bad: #f40;
+	      --shiny-invalid: #8888;
+	      --shiny-inactive-opacity: 0.5;
+      }
+    </style>
+    ```
+
+
+
+<br/><br/>
+
 ## ✨shiny is by e280
 reward us with github stars  
 build with us at https://e280.org/ if you're good at dev  
