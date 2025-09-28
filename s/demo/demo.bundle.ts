@@ -7,6 +7,12 @@ import {Demonstration} from "./views/demonstration/view.js"
 
 const {views} = shiny({theme: basic})
 
+const labels = {
+	html: "html web component",
+	view: "sly view",
+	css: "custom css",
+}
+
 dom.register({ShinyDemo: view.component(use => {
 	use.styles(css`
 		:host {
@@ -23,12 +29,22 @@ dom.register({ShinyDemo: view.component(use => {
 			explain: html`
 				<p>button for click-to-copy text</p>
 			`,
-			exampleComponent: `
-				<shiny-copy text="hello world"></shiny-copy>
-			`,
-			exampleView: `
-				ShinyCopy("hello world")
-			`,
+			snippets: [
+				[labels.html, `
+					<shiny-copy text="hello world"></shiny-copy>
+				`],
+				[labels.view, `
+					ShinyCopy("hello world")
+				`],
+				[labels.css, `
+					shiny-copy {
+						font-size: 1em;
+						--good: #0f4;
+						--bad: #f40;
+						--invalid: #8888;
+					}
+				`],
+			],
 			content: views.ShinyCopy("hello world"),
 			style: css`
 				.content sly-view {
@@ -42,18 +58,29 @@ dom.register({ShinyDemo: view.component(use => {
 			explain: html`
 				<p>slide-out drawer menu</p>
 			`,
-			exampleComponent: `
-				<shiny-burger>
-					<div slot=drawer>example</div>
-					<section>lorem kettlebell..</section>
-				</shiny-burger>
-			`,
-			exampleView: `
-				ShinyBurger.props().children(html\`
-					<div slot=drawer>example</div>
-					<section>lorem kettlebell..</section>
-				\`).render()
-			`,
+			snippets: [
+				[labels.html, `
+					<shiny-burger>
+						<div slot=drawer>example</div>
+						<section>lorem kettlebell..</section>
+					</shiny-burger>
+				`],
+				[labels.view, `
+					ShinyBurger.props().children(html\`
+						<div slot=drawer>example</div>
+						<section>lorem kettlebell..</section>
+					\`).render()
+				`],
+				[labels.css, `
+					shiny-burger {
+						--button-size: 2em;
+						--drawer-height: auto;
+						--anim-duration: 200ms;
+						--blanket-bg: #1118;
+						--drawer-bg: #7778;
+					}
+				`],
+			],
 			content: views.ShinyBurger.props()
 				.children(html`
 					<div slot=drawer>
@@ -61,8 +88,10 @@ dom.register({ShinyDemo: view.component(use => {
 						<p>you can put any content in here.</p>
 						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 					</div>
 					<section>
+						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 						<p>lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
 					</section>
 				`)
@@ -78,6 +107,7 @@ dom.register({ShinyDemo: view.component(use => {
 					section {
 						padding: 0.5em;
 						padding-left: 2em;
+						> * + * { margin-top: 0.5em; }
 					}
 				}
 			`,

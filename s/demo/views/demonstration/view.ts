@@ -10,8 +10,7 @@ export const Demonstration = view(use => (options: {
 		name: string
 		explain: Content
 		views: ShinyViews
-		exampleComponent: string
-		exampleView: string
+		snippets: [label: string, code: string][]
 		content: Content
 		style: CSSResultGroup
 	}) => {
@@ -37,8 +36,7 @@ export const Demonstration = view(use => (options: {
 			<h2>✨ ${options.name}</h2>
 			<div class=explain>${options.explain}</div>
 			<div class=codes>
-				${codeblock("html web component", options.exampleComponent)}
-				${codeblock("sly view", options.exampleView)}
+				${options.snippets.map(([label, code]) => codeblock(label, code))}
 			</div>
 		</div>
 
