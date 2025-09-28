@@ -1,8 +1,10 @@
 
 import {html} from "lit"
 import {dom, view} from "@e280/sly"
-import styleCss from "./style.css.js"
+
 import {Drawer} from "./drawer.js"
+import styleCss from "./style.css.js"
+import xSvg from "../../icons/tabler/x.svg.js"
 import menu2Svg from "../../icons/tabler/menu-2.svg.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
@@ -34,9 +36,17 @@ export class ShinyDrawer extends (
 						${button
 							? html`
 								<button @click="${drawer.toggle}">
-									<slot name=button>
-										${menu2Svg}
-									</slot>
+									${drawer.isOpen
+										? html`
+											<slot name=button-x>
+												${xSvg}
+											</slot>
+										`
+										: html`
+											<slot name=button>
+												${menu2Svg}
+											</slot>
+										`}
 								</button>
 							`
 							: null}
