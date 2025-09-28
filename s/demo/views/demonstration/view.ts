@@ -1,5 +1,5 @@
 
-import {html} from "lit"
+import {CSSResultGroup, html} from "lit"
 import {untab} from "@e280/stz"
 import {Content, view} from "@e280/sly"
 import styleCss from "./style.css.js"
@@ -13,10 +13,11 @@ export const Demonstration = view(use => (options: {
 		exampleComponent: string
 		exampleView: string
 		content: Content
+		style: CSSResultGroup
 	}) => {
 
 	use.name(options.name)
-	use.styles(basic, styleCss)
+	use.styles(basic, styleCss, options.style)
 
 	function codeblock(heading: string, code: string) {
 		const cleanCode = untab(code).trim()

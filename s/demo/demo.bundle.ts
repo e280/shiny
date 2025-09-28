@@ -14,10 +14,6 @@ dom.register({ShinyDemo: view.component(use => {
 			flex-direction: column;
 			gap: 1em;
 		}
-
-		[view="shiny-copy"]::part(content) {
-			font-size: 4em;
-		}
 	`)
 
 	return [
@@ -34,6 +30,45 @@ dom.register({ShinyDemo: view.component(use => {
 				ShinyCopy("hello world")
 			`,
 			content: views.ShinyCopy("hello world"),
+			style: css`
+				[part="content"] {
+					font-size: 4em;
+				}
+			`,
+		}),
+		Demonstration({
+			views,
+			name: "shiny-burger",
+			explain: html`
+				<p>slide-out drawer menu</p>
+			`,
+			exampleComponent: `
+				<shiny-burger></shiny-burger>
+			`,
+			exampleView: `
+				ShinyBurger()
+			`,
+			content: views.ShinyBurger.props()
+				.children(html`
+					<nav slot=menu>
+						<p>menu item 1</p>
+						<p>menu item 2</p>
+						<p>menu item 2</p>
+						<p>menu item 2</p>
+					</nav>
+					<section>
+						<p>Lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. Adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. Ut enim ad minim clean &amp; press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.</p>
+					</section>
+				`)
+				.render(),
+			style: css`
+				nav {
+					padding: 1em;
+				}
+				section {
+					padding-left: 2.5em;
+				}
+			`,
 		}),
 	]
 })})
