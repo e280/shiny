@@ -1,6 +1,6 @@
 
 import {css} from "lit"
-export default css`
+export default css`@layer view {
 
 :host {
 	display: block;
@@ -113,5 +113,5 @@ export default css`
 	}
 }
 
-`
+}`
 

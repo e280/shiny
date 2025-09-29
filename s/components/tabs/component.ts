@@ -3,12 +3,13 @@ import {html} from "lit"
 import {dom, view} from "@e280/sly"
 import {TabControl} from "./tabs.js"
 import styleCss from "./style.css.js"
+import {foundationCss} from "../foundation.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyTabs extends (
 	view(use => (context: ShinyContext, controlOption?: TabControl) => {
 		use.name("shiny-tabs")
-		use.styles(context.theme, styleCss)
+		use.styles(foundationCss, styleCss, context.theme)
 
 		const attrs = use.attrs.spec({index: Number})
 		const control = use.once(() => controlOption ?? new TabControl(attrs.index ?? 0))

@@ -5,6 +5,7 @@ import {dom, view} from "@e280/sly"
 import {Drawer} from "./drawer.js"
 import styleCss from "./style.css.js"
 import xSvg from "../../icons/tabler/x.svg.js"
+import {foundationCss} from "../foundation.css.js"
 import menu2Svg from "../../icons/tabler/menu-2.svg.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
@@ -16,7 +17,7 @@ export class ShinyDrawer extends (
 		}) => {
 
 		use.name("shiny-drawer")
-		use.styles(context.theme, styleCss)
+		use.styles(foundationCss, styleCss, context.theme)
 
 		const button = options.button
 		const side = options.side ?? "left"

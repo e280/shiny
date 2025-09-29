@@ -1,9 +1,6 @@
 
 import {css} from "lit"
-import {cssReset} from "@e280/sly"
-export const basic = css`
-
-${cssReset}
+export const basic = css`@layer overlay {
 
 :host {
 	display: block;
@@ -17,5 +14,5 @@ ${cssReset}
 	--inactive-opacity: var(--shiny-inactive-opacity, 0.5);
 }
 
-`
+}`
 

@@ -4,6 +4,7 @@ import {debounce} from "@e280/stz"
 import {dom, view} from "@e280/sly"
 
 import styleCss from "./style.css.js"
+import {foundationCss} from "../foundation.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 import clipboardSvg from "../../icons/tabler/clipboard.svg.js"
 import clipboardXFilledSvg from "../../icons/tabler/clipboard-x-filled.svg.js"
@@ -12,7 +13,7 @@ import clipboardCheckFilledSvg from "../../icons/tabler/clipboard-check-filled.s
 export class ShinyCopy extends (
 	view(use => (context: ShinyContext, text: string | undefined, ms = 1000) => {
 		use.name("shiny-copy")
-		use.styles(context.theme, styleCss)
+		use.styles(foundationCss, styleCss, context.theme)
 
 		type Status = "neutral" | "good" | "bad" | "invalid"
 

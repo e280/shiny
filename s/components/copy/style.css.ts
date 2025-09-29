@@ -1,6 +1,6 @@
 
 import {css} from "lit"
-export default css`
+export default css`@layer view {
 
 button {
 	background: transparent;
@@ -42,5 +42,5 @@ svg {
 	height: 1em;
 }
 
-`
+}`
 
