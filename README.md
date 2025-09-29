@@ -18,6 +18,7 @@
     ```html
     <script async src="https://shiny.e280.org/install/aura.bundle.min.js"></script>
     ```
+    - you can swap `aura` there for another theme
 - you're ready to put shiny components in your html `<body>`
     ```html
     <shiny-copy text="hello world"></shiny-copy>
@@ -42,10 +43,14 @@
     ```ts
     const {components, views} = shiny({theme: themes.aura})
     ```
+    - `aura` — (default) cosmic dreamy seaside nebula vibes
+    - `plain` — bare-bones spartan theme, buttons look lame
 - (optional) register the components
     ```ts
     dom.register(components)
     ```
+    - or use views instead of components
+- time to go shopping at https://shiny.e280.org/
 
 
 
