@@ -1,19 +1,19 @@
 
 ![](https://i.imgur.com/F1J78wH.png)
 
-# ✨shiny
+# ✨shiny✨
 > *web ui components*
 
 - 💁 ***see all the components at https://shiny.e280.org/*** 👈
 - 👷 built with [🦝sly](https://github.com/e280/sly) and [🔥lit](https://lit.dev/)
-- 🍋 all components are available as ***web components*** or ***sly views***
+- 🎭 duality: all components are available as ***web components*** or ***sly views***
 - 🧑‍💻 a project by https://e280.org/
 
 
 
 <br/><br/>
 
-## ✨ instant html installation
+## 🍭 instant html installation
 - put this in your html `<head>`
     ```html
     <script async src="https://shiny.e280.org/install/basic.bundle.min.js"></script>
@@ -28,7 +28,7 @@
 
 <br/><br/>
 
-## ✨ web app installation
+## 🍬 web app installation
 - install shiny and friends
     ```sh
     npm install @e280/shiny @e280/sly lit
@@ -51,7 +51,7 @@
 
 <br/><br/>
 
-## ✨ views are for the cool kids
+## 😎 views are for the cool kids
 - hey, remember those `views` you got from the install snippet?
     ```ts
     const {components, views} = shiny({theme: themes.basic})
@@ -82,7 +82,7 @@
 
 <br/><br/>
 
-## ✨ page-wide css customization
+## 💅 page-wide css customization
 - put this in your `<head>` and you can customize colors and stuff
     ```html
     <style>
@@ -101,7 +101,7 @@
 
 <br/><br/>
 
-## ✨shiny is by e280
+## 🧑‍💻 by e280
 reward us with github stars  
 build with us at https://e280.org/ if you're good at dev  
 
