@@ -87,6 +87,7 @@ dom.register({ShinyDemo: view.component(use => {
 					shiny-drawer {
 						--button-size: 2em;
 						--anim-duration: 200ms;
+						--tray-height: auto;
 						--blanket-bg: #1118;
 						--blanket-backdrop-filter: blur(0.5em);
 						--inactive-opacity: 0.5;
