@@ -9,11 +9,17 @@ import menu2Svg from "../../icons/tabler/menu-2.svg.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyDrawer extends (
-	view(use => (context: ShinyContext, options: {button?: boolean, drawer?: Drawer} = {}) => {
+	view(use => (context: ShinyContext, options: {
+			button: boolean
+			side?: "left" | "right"
+			drawer?: Drawer
+		}) => {
+
 		use.name("shiny-drawer")
 		use.styles(context.theme, styleCss)
 
-		const button = options.button ?? true
+		const button = options.button
+		const side = options.side ?? "left"
 		const drawer = use.once(() => (options.drawer ?? new Drawer()))
 
 		use.mount(() => dom.events(window, {keydown: (event: KeyboardEvent) => {
@@ -24,7 +30,7 @@ export class ShinyDrawer extends (
 		dom.attrs(use.element).booleans.open = drawer.isOpen
 
 		return html`
-			<div class=shell ?data-open="${drawer.isOpen}">
+			<div class=shell ?data-open="${drawer.isOpen}" data-side="${side}">
 				<slot name=plate ?inert="${drawer.isOpen}"></slot>
 
 				<div class=clipper>
@@ -59,6 +65,7 @@ export class ShinyDrawer extends (
 		attrs = dom.attrs(this).spec({
 			open: Boolean,
 			button: Boolean,
+			side: String,
 		})
 		drawer = new Drawer(this.attrs.open)
 		get isOpen() { return this.drawer.isOpen }
@@ -69,6 +76,7 @@ export class ShinyDrawer extends (
 	.props(el => [el.context, {
 		drawer: el.drawer,
 		button: el.attrs.button,
+		side: el.attrs.side === "right" ? "right" : "left",
 	}] as const)
 ) {}
 

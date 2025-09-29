@@ -3,8 +3,9 @@ import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {shiny} from "../shiny.js"
 import {basic} from "../themes/basic.css.js"
+import {makeLipsumDispenser} from "./utils/lipsum.js"
 import {Demonstration} from "./views/demonstration/view.js"
-import { makeLipsumDispenser } from "./utils/lipsum.js"
+import { Drawer } from "../components/drawer/drawer.js"
 
 const {views} = shiny({theme: basic})
 
@@ -59,6 +60,7 @@ dom.register({ShinyDemo: view.component(use => {
 				}
 			`,
 		}),
+
 		Demonstration({
 			views,
 			name: "shiny-drawer",
@@ -67,16 +69,19 @@ dom.register({ShinyDemo: view.component(use => {
 			`,
 			snippets: [
 				[labels.html, `
-					<shiny-drawer button>
+					<shiny-drawer button side=left>
 						<header>example</header>
 						<section slot=plate>lorem kettlebell..</section>
 					</shiny-drawer>
 				`],
 				[labels.view, `
-					ShinyDrawer.props().children(html\`
-						<header>example</header>
-						<section slot=plate>lorem kettlebell..</section>
-					\`).render()
+					ShinyDrawer
+						.props({button: true, side: "left"})
+						.children(html\`
+							<header>example</header>
+							<section slot=plate>lorem kettlebell..</section>
+						\`)
+						.render()
 				`],
 				[labels.css, `
 					shiny-drawer {
@@ -89,7 +94,8 @@ dom.register({ShinyDemo: view.component(use => {
 					}
 				`],
 			],
-			content: views.ShinyDrawer.props()
+			content: views.ShinyDrawer
+				.props({button: true})
 				.children(html`
 					<header>
 						<h2>example drawer</h2>

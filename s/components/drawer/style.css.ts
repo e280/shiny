@@ -86,6 +86,17 @@ export default css`
 		}
 	}
 
+	&[data-side="right"] {
+		[part="tray"] {
+			right: 0;
+			transform: translateX(100%);
+			> button {
+				left: unset;
+				right: 100%;
+			}
+		}
+	}
+
 	slot[name="plate"] {
 		display: block;
 		width: 100%;
