@@ -1,6 +1,6 @@
 
 import {css} from "lit"
-export default css`
+export default css`@layer view {
 
 :host {
 	position: relative;
@@ -35,6 +35,12 @@ export default css`
 		position: relative;
 		z-index: 1;
 	}
+}
+
+p.lipsum {
+	opacity: 0.7;
+	font-family: serif;
+	font-style: italic;
 }
 
 .meta {
@@ -105,5 +111,5 @@ export default css`
 	border: 1px dashed #fff4;
 }
 
-`
+}`
 

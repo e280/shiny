@@ -16,7 +16,7 @@
 ## 🍭 instant html installation
 - put this in your html `<head>`
     ```html
-    <script async src="https://shiny.e280.org/install/basic.bundle.min.js"></script>
+    <script async src="https://shiny.e280.org/install/aura.bundle.min.js"></script>
     ```
 - you're ready to put shiny components in your html `<body>`
     ```html
@@ -40,7 +40,7 @@
     ```
 - prepare the components/views and choose a theme
     ```ts
-    const {components, views} = shiny({theme: themes.basic})
+    const {components, views} = shiny({theme: themes.aura})
     ```
 - (optional) register the components
     ```ts
@@ -54,7 +54,7 @@
 ## 😎 views are for the cool kids
 - hey, remember those `views` you got from the install snippet?
     ```ts
-    const {components, views} = shiny({theme: themes.basic})
+    const {components, views} = shiny({theme: themes.aura})
     ```
 - well you can yoink out a view you wanna use
     ```ts

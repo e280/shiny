@@ -4,7 +4,6 @@ import {untab} from "@e280/stz"
 import {Content, view} from "@e280/sly"
 import styleCss from "./style.css.js"
 import {ShinyViews} from "../../../shiny.js"
-import {basic} from "../../../themes/basic.css.js"
 import {foundationCss} from "../../../components/foundation.css.js"
 
 export const Demonstration = view(use => (options: {
@@ -17,7 +16,7 @@ export const Demonstration = view(use => (options: {
 	}) => {
 
 	use.name(options.name)
-	use.styles(foundationCss, basic, styleCss, options.style)
+	use.styles(foundationCss, styleCss, options.style)
 
 	function codeblock(heading: string, code: string) {
 		const cleanCode = untab(code).trim()

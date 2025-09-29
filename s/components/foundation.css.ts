@@ -3,11 +3,9 @@ import {css} from "lit"
 import {cssReset} from "@e280/sly"
 export const foundationCss = css`
 
-@layer underlay, view, overlay;
+@layer reset, underlay, view, overlay;
 
-@layer underlay {
-	${cssReset}
-}
+${cssReset}
 
 @layer overlay {
 	[hidden] { display: none !important; }

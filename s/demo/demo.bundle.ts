@@ -2,11 +2,11 @@
 import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {shiny} from "../shiny.js"
-import {basic} from "../themes/basic.css.js"
+import {aura} from "../themes/aura.css.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
 import {Demonstration} from "./views/demonstration/view.js"
 
-const {views} = shiny({theme: basic})
+const {views} = shiny({theme: aura})
 
 const labels = {
 	html: {button: "html", text: "html web component"},
@@ -111,12 +111,6 @@ dom.register({ShinyDemo: view.component(use => {
 					overflow: hidden;
 					--button-size: 3em;
 
-					p.lipsum {
-						opacity: 0.7;
-						font-family: serif;
-						font-style: italic;
-					}
-
 					header {
 						padding: 0.5em;
 						border-bottom-right-radius: 0.5em;
@@ -182,13 +176,16 @@ dom.register({ShinyDemo: view.component(use => {
 					<button>tab1</button>
 					<button>tab2</button>
 					<button>tab3</button>
-					<div slot=panel>panel1</div>
-					<div slot=panel>panel2</div>
-					<div slot=panel>panel3</div>
+					<p slot=panel class=lipsum>${lipsum()}</p>
+					<p slot=panel class=lipsum>${lipsum()}</p>
+					<p slot=panel class=lipsum>${lipsum()}</p>
 				`)
 				.render(),
 			style: css`
-				.content sly-view {}
+				.content {
+					justify-content: start;
+					p { margin-top: 0.5em; }
+				}
 			`,
 		}),
 	]
