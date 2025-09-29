@@ -142,6 +142,57 @@ dom.register({ShinyDemo: view.component(use => {
 				}
 			`,
 		}),
+
+		Demonstration({
+			views,
+			name: "shiny-tabs",
+			explain: html`
+				<p>tabbable buttons</p>
+			`,
+			snippets: [
+				[labels.html, `
+					<shiny-tabs>
+						<button>tab1</button>
+						<button>tab2</button>
+						<button>tab3</button>
+						<div slot=panel>panel1</div>
+						<div slot=panel>panel2</div>
+						<div slot=panel>panel3</div>
+					</shiny-tabs>
+				`],
+				[labels.view, `
+					ShinyTabs
+						.props()
+						.children(html\`
+							<button>tab1</button>
+							<button>tab2</button>
+							<button>tab3</button>
+							<div slot=panel>panel1</div>
+							<div slot=panel>panel2</div>
+							<div slot=panel>panel3</div>
+						\`)
+						.render()
+				`],
+				[labels.css, `
+					shiny-tabs::part(tabs) {}
+					shiny-tabs::part(panels) {}
+				`],
+			],
+			content: views.ShinyTabs
+				.props()
+				.children(html`
+					<button>tab1</button>
+					<button>tab2</button>
+					<button>tab3</button>
+					<div slot=panel>panel1</div>
+					<div slot=panel>panel2</div>
+					<div slot=panel>panel3</div>
+				`)
+				.render(),
+			style: css`
+				.content sly-view {}
+			`,
+		}),
 	]
 })})
 
