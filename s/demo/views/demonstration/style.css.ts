@@ -94,6 +94,7 @@ p.lipsum {
 
 		[view="shiny-copy"] {
 			flex: 0 0 0;
+			font-size: 1.5em;
 			padding: 0.2em;
 		}
 	}

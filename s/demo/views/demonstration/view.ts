@@ -1,15 +1,14 @@
 
-import {CSSResultGroup, html} from "lit"
 import {untab} from "@e280/stz"
 import {Content, view} from "@e280/sly"
+import {CSSResultGroup, html} from "lit"
 import styleCss from "./style.css.js"
-import {ShinyViews} from "../../../shiny.js"
+import {auraViews} from "../../aura-views.js"
 import {foundationCss} from "../../../components/foundation.css.js"
 
 export const Demonstration = view(use => (options: {
 		name: string
 		explain: Content
-		views: ShinyViews
 		snippets: [label: {button: string, text: string}, code: string][]
 		content: Content
 		style: CSSResultGroup
@@ -26,7 +25,7 @@ export const Demonstration = view(use => (options: {
 					<h3>${heading}</h3>
 					<code>${cleanCode}</code>
 				</div>
-				${options.views.ShinyCopy(cleanCode)}
+				${auraViews.ShinyCopy(cleanCode)}
 			</div>
 		`
 	}
@@ -35,7 +34,7 @@ export const Demonstration = view(use => (options: {
 		<div class=meta>
 			<h2>✨ ${options.name}</h2>
 			<div class=explain>${options.explain}</div>
-			${options.views.ShinyTabs
+			${auraViews.ShinyTabs
 				.props()
 				.children(html`
 					${options.snippets.map(([label]) => html`

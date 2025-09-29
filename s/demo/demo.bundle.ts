@@ -2,11 +2,16 @@
 import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {shiny} from "../shiny.js"
-import {aura} from "../themes/aura.css.js"
+import {auraViews} from "./aura-views.js"
+import {plain} from "../themes/plain.css.js"
+import {TabControl} from "../components/tabs/tabs.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
 import {Demonstration} from "./views/demonstration/view.js"
 
-const {views} = shiny({theme: aura})
+const viewsets = [
+	{label: "aura", views: auraViews},
+	{label: "plain", views: shiny({theme: plain}).views},
+]
 
 const labels = {
 	html: {button: "html", text: "html web component"},
@@ -14,10 +19,8 @@ const labels = {
 	css: {button: "css", text: "custom css"},
 }
 
-const lipsum = (() => {
-	const dispenser = makeLipsumDispenser()
-	return () => dispenser.takeRandom()
-})()
+const dispenser = makeLipsumDispenser()
+const lipsum = () => dispenser.takeFirst()
 
 dom.register({ShinyDemo: view.component(use => {
 	use.styles(css`
@@ -26,14 +29,35 @@ dom.register({ShinyDemo: view.component(use => {
 			flex-direction: column;
 			gap: 1em;
 		}
+
+		.themes {
+			display: flex;
+			justify-content: end;
+			gap: 0.5em;
+
+			span {
+				font-size: 1.2em;
+				opacity: 0.5;
+				font-family: serif;
+				font-style: italic;
+			}
+
+			[view="shiny-tabs"] {
+				display: flex;
+			}
+		}
 	`)
 
-	return [
+	const tabControl = use.once(() => new TabControl(0))
+	const $viewset = use.derived(() => viewsets.at(tabControl.$index())!)
+	const views = $viewset().views
+	dispenser.takeAll()
+
+	const demonstrations = [
 		Demonstration({
-			views,
 			name: "shiny-copy",
 			explain: html`
-				<p>button for click-to-copy text</p>
+				<p>click-to-copy text button.</p>
 			`,
 			snippets: [
 				[labels.html, `
@@ -61,10 +85,9 @@ dom.register({ShinyDemo: view.component(use => {
 		}),
 
 		Demonstration({
-			views,
 			name: "shiny-drawer",
 			explain: html`
-				<p>slide-out panel with optional burger button</p>
+				<p>slide-out panel. button optional.</p>
 			`,
 			snippets: [
 				[labels.html, `
@@ -129,10 +152,9 @@ dom.register({ShinyDemo: view.component(use => {
 		}),
 
 		Demonstration({
-			views,
 			name: "shiny-tabs",
 			explain: html`
-				<p>button bar for flipping between panels. the panels are optional.</p>
+				<p>button bar. panels optional.</p>
 			`,
 			snippets: [
 				[labels.html, `
@@ -182,6 +204,20 @@ dom.register({ShinyDemo: view.component(use => {
 			`,
 		}),
 	]
+
+	return html`
+		<div class=themes>
+			<span>theme</span>
+			${auraViews.ShinyTabs
+				.props(tabControl)
+				.children(viewsets.map(viewset => html`
+					<button>${viewset.label}</button>
+				`))
+				.render()}
+		</div>
+
+		${demonstrations}
+	`
 })})
 
 console.log("✨shiny")
