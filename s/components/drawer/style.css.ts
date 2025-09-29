@@ -7,7 +7,6 @@ export default css`
 	width: 100%;
 	height: 100%;
 	--button-size: 2em;
-	--drawer-height: auto;
 	--anim-duration: 200ms;
 	--blanket-bg: #1118;
 	--blanket-backdrop-filter: blur(0.5em);
@@ -56,8 +55,7 @@ export default css`
 
 		> slot {
 			display: block;
-			height: var(--drawer-height);
-			max-height: 100%;
+			height: 100%;
 			overflow-y: auto;
 		}
 
