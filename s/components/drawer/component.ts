@@ -4,6 +4,7 @@ import {dom, view} from "@e280/sly"
 
 import {Drawer} from "./drawer.js"
 import styleCss from "./style.css.js"
+import {States} from "../../utils/states.js"
 import xSvg from "../../icons/tabler/x.svg.js"
 import {foundationCss} from "../foundation.css.js"
 import menu2Svg from "../../icons/tabler/menu-2.svg.js"
@@ -18,10 +19,12 @@ export class ShinyDrawer extends (
 
 		use.name("shiny-drawer")
 		use.styles(foundationCss, context.theme, styleCss)
+		const states = use.once(() => new States(use.element))
 
 		const button = options.button
 		const side = options.side ?? "left"
 		const drawer = use.once(() => (options.drawer ?? new Drawer()))
+		states.assign(side)
 
 		use.mount(() => dom.events(window, {keydown: (event: KeyboardEvent) => {
 			if (event.code === "Escape")

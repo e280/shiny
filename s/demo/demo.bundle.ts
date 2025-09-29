@@ -112,13 +112,6 @@ dom.register({ShinyDemo: view.component(use => {
 					--button-size: 3em;
 
 					header {
-						padding: 0.5em;
-						border-bottom-right-radius: 0.5em;
-						background: linear-gradient(
-							to top right,
-							#00a9dd69,
-							#70ffd77a
-						);
 						> * + * { margin-top: 0.5em; }
 					}
 
@@ -139,7 +132,7 @@ dom.register({ShinyDemo: view.component(use => {
 			views,
 			name: "shiny-tabs",
 			explain: html`
-				<p>tabbable buttons</p>
+				<p>button bar for flipping between panels. the panels are optional.</p>
 			`,
 			snippets: [
 				[labels.html, `
