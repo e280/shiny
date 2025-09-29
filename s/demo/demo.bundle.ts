@@ -5,14 +5,13 @@ import {shiny} from "../shiny.js"
 import {basic} from "../themes/basic.css.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
 import {Demonstration} from "./views/demonstration/view.js"
-import { Drawer } from "../components/drawer/drawer.js"
 
 const {views} = shiny({theme: basic})
 
 const labels = {
-	html: "html web component",
-	view: "sly view",
-	css: "custom css",
+	html: {button: "html", text: "html web component"},
+	view: {button: "view", text: "sly view"},
+	css: {button: "css", text: "custom css"},
 }
 
 const lipsum = (() => {
@@ -87,7 +86,6 @@ dom.register({ShinyDemo: view.component(use => {
 					shiny-drawer {
 						--button-size: 2em;
 						--anim-duration: 200ms;
-						--tray-height: auto;
 						--blanket-bg: #1118;
 						--blanket-backdrop-filter: blur(0.5em);
 						--inactive-opacity: 0.5;

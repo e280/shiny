@@ -8,7 +8,7 @@ import {ShinyContext, ShinyElement} from "../framework.js"
 export class ShinyExample extends (
 	view(use => (context: ShinyContext, start: number) => {
 		use.name("shiny-example")
-		use.styles(foundationCss, styleCss, context.theme)
+		use.styles(foundationCss, context.theme, styleCss)
 
 		const $count = use.signal(start)
 		const increment = () => { $count.value++ }

@@ -13,7 +13,7 @@ import clipboardCheckFilledSvg from "../../icons/tabler/clipboard-check-filled.s
 export class ShinyCopy extends (
 	view(use => (context: ShinyContext, text: string | undefined, ms = 1000) => {
 		use.name("shiny-copy")
-		use.styles(foundationCss, styleCss, context.theme)
+		use.styles(foundationCss, context.theme, styleCss)
 
 		type Status = "neutral" | "good" | "bad" | "invalid"
 

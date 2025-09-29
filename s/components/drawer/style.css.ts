@@ -8,7 +8,6 @@ export default css`@layer view {
 	height: 100%;
 	--button-size: 2em;
 	--anim-duration: 200ms;
-	--tray-height: auto;
 	--blanket-bg: #1118;
 	--blanket-backdrop-filter: blur(0.5em);
 }
@@ -47,7 +46,11 @@ export default css`@layer view {
 		position: absolute;
 		top: 0;
 		width: calc(100% - var(--button-size));
-		height: var(--tray-height);
+
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		max-height: 100%;
 
 		opacity: 1;
 		transform: translateX(-100%);

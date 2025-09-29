@@ -9,7 +9,7 @@ import {ShinyContext, ShinyElement} from "../framework.js"
 export class ShinyTabs extends (
 	view(use => (context: ShinyContext, controlOption?: TabControl) => {
 		use.name("shiny-tabs")
-		use.styles(foundationCss, styleCss, context.theme)
+		use.styles(foundationCss, context.theme, styleCss)
 
 		const attrs = use.attrs.spec({index: Number})
 		const control = use.once(() => controlOption ?? new TabControl(attrs.index ?? 0))

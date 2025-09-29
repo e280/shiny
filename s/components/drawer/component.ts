@@ -17,7 +17,7 @@ export class ShinyDrawer extends (
 		}) => {
 
 		use.name("shiny-drawer")
-		use.styles(foundationCss, styleCss, context.theme)
+		use.styles(foundationCss, context.theme, styleCss)
 
 		const button = options.button
 		const side = options.side ?? "left"
