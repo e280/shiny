@@ -1,8 +1,8 @@
 
 import {html} from "lit"
 import {dom, view} from "@e280/sly"
-import {TabControl} from "./tabs.js"
 import styleCss from "./style.css.js"
+import {TabControl} from "./control.js"
 import {foundationCss} from "../foundation.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 

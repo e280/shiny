@@ -4,8 +4,8 @@ import {dom, view} from "@e280/sly"
 import {shiny} from "../shiny.js"
 import {auraViews} from "./aura-views.js"
 import {plain} from "../themes/plain.css.js"
-import {TabControl} from "../components/tabs/tabs.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
+import {TabControl} from "../components/tabs/control.js"
 import {Demonstration} from "./views/demonstration/view.js"
 
 const viewsets = [

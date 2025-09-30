@@ -2,8 +2,8 @@
 import {html} from "lit"
 import {dom, view} from "@e280/sly"
 
-import {Drawer} from "./drawer.js"
 import styleCss from "./style.css.js"
+import {DrawerControl} from "./control.js"
 import {States} from "../../utils/states.js"
 import xSvg from "../../icons/tabler/x.svg.js"
 import {foundationCss} from "../foundation.css.js"
@@ -14,16 +14,15 @@ export class ShinyDrawer extends (
 	view(use => (context: ShinyContext, options: {
 			button: boolean
 			side?: "left" | "right"
-			drawer?: Drawer
+			control?: DrawerControl
 		}) => {
 
 		use.name("shiny-drawer")
 		use.styles(foundationCss, context.theme, styleCss)
 		const states = use.once(() => new States(use.element))
 
-		const button = options.button
 		const side = options.side ?? "left"
-		const drawer = use.once(() => (options.drawer ?? new Drawer()))
+		const drawer = use.once(() => (options.control ?? new DrawerControl()))
 		states.assign(side)
 
 		use.mount(() => dom.events(window, {keydown: (event: KeyboardEvent) => {
@@ -43,7 +42,7 @@ export class ShinyDrawer extends (
 					<div part=tray>
 						<slot ?inert="${!drawer.isOpen}"></slot>
 
-						${button
+						${options.button
 							? html`
 								<button @click="${drawer.toggle}">
 									${drawer.isOpen
@@ -66,21 +65,28 @@ export class ShinyDrawer extends (
 		`
 	})
 	.component(class extends ShinyElement {
-		attrs = dom.attrs(this).spec({
+		#attrs = dom.attrs(this).spec({
 			open: Boolean,
 			button: Boolean,
 			side: String,
 		})
-		drawer = new Drawer(this.attrs.open)
-		get isOpen() { return this.drawer.isOpen }
-		get toggle() { return this.drawer.toggle }
-		get open() { return this.drawer.open }
-		get close() { return this.drawer.close }
+
+		get button() { return this.#attrs.button }
+		set button(v) { this.#attrs.button = v }
+
+		get side() { return this.#attrs.side === "right" ? "right" : "left" }
+		set side(v) { this.#attrs.side = v }
+
+		control = new DrawerControl(this.#attrs.open)
+		get isOpen() { return this.control.isOpen }
+		get toggle() { return this.control.toggle }
+		get open() { return this.control.open }
+		get close() { return this.control.close }
 	})
 	.props(el => [el.context, {
-		drawer: el.drawer,
-		button: el.attrs.button,
-		side: el.attrs.side === "right" ? "right" : "left",
+		control: el.control,
+		button: el.button,
+		side: el.side,
 	}] as const)
 ) {}
 
