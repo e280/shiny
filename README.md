@@ -92,13 +92,16 @@
     ```html
     <style>
       html {
-	      --shiny-bg: #111;
-	      --shiny-alpha: #afa;
-	      --shiny-happy: #0fa;
-	      --shiny-sad: #74f;
-	      --shiny-angry: #f50;
-	      --shiny-lame: #8888;
-	      --shiny-inactive-opacity: 0.5;
+        --shiny-bg: #111;
+        --shiny-alpha: #def;
+        --shiny-lame: #8888;
+        --shiny-inactive-opacity: 0.5;
+        --shiny-angry: #f50;
+        --shiny-zesty: #cf0;
+        --shiny-happy: #0fa;
+        --shiny-calm: #0af;
+        --shiny-sad: #74f;
+        --shiny-quirky: #f49;
       }
     </style>
     ```

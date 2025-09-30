@@ -4,22 +4,30 @@ import {unsafeCSS} from "lit"
 export type CssVars = {
 	"bg": string
 	"alpha": string
-	"happy": string
-	"sad": string
-	"angry": string
 	"lame": string
 	"inactive-opacity": string
+
+	// normative color vibes
+	"angry": string // red
+	"zesty": string // yellow
+	"happy": string // green
+	"calm": string // cyan
+	"sad": string // blue
+	"quirky": string // magenta
 }
 
 export function defaultCssVars(): CssVars {
 	return {
 		"bg": "#111",
-		"alpha": "#afa",
-		"happy": "#0fa",
-		"sad": "#74f",
-		"angry": "#f50",
+		"alpha": "#def",
 		"lame": "#8888",
 		"inactive-opacity": "0.5",
+		"angry": "#f50",
+		"zesty": "#cf0",
+		"happy": "#0fa",
+		"calm": "#0af",
+		"sad": "#74f",
+		"quirky": "#f49",
 	}
 }
 
