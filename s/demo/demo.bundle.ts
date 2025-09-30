@@ -42,7 +42,7 @@ dom.register({ShinyDemo: view.component(use => {
 				font-style: italic;
 			}
 
-			[view="shiny-tabs"] {
+			[view="demo-tabs"] {
 				display: flex;
 			}
 		}
@@ -55,7 +55,45 @@ dom.register({ShinyDemo: view.component(use => {
 
 	const demonstrations = [
 		Demonstration({
-			name: "shiny-copy",
+			name: "button",
+			explain: html`
+				<p>clicky-clacky pressy button.</p>
+			`,
+			snippets: [
+				[labels.html, `
+					<shiny-button>hello</shiny-button>
+				`],
+				[labels.view, `
+					ShinyButton
+						.props()
+						.children("hello")
+						.render()
+				`],
+				[labels.css, `
+					shiny-button {
+						font-size: 1em;
+						--happy: #0fa;
+						--angry: #f50;
+						--lame: #8888;
+						--inactive-opacity: 0.5;
+					}
+				`],
+			],
+			content: (
+				views.ShinyButton
+					.props()
+					.children("hello")
+					.render()
+			),
+			style: css`
+				.content sly-view {
+					font-size: 2em;
+				}
+			`,
+		}),
+
+		Demonstration({
+			name: "copy",
 			explain: html`
 				<p>click-to-copy text button.</p>
 			`,
@@ -85,7 +123,7 @@ dom.register({ShinyDemo: view.component(use => {
 		}),
 
 		Demonstration({
-			name: "shiny-drawer",
+			name: "drawer",
 			explain: html`
 				<p>slide-out panel. button optional.</p>
 			`,
@@ -160,7 +198,7 @@ dom.register({ShinyDemo: view.component(use => {
 		}),
 
 		Demonstration({
-			name: "shiny-tabs",
+			name: "tabs",
 			explain: html`
 				<p>button bar. panels optional.</p>
 			`,

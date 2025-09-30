@@ -4,11 +4,13 @@ import {defaultCssVars, renderCssVars} from "./infra/css-vars.js"
 export const aura = css`@layer overlay {
 
 :host {
-	display: block;
-
 	${renderCssVars({
 		...defaultCssVars(),
 	})}
+}
+
+:host([view="shiny-button"])::part(button) {
+	padding: 0.5em;
 }
 
 :host([view="shiny-drawer"]) {
@@ -39,7 +41,7 @@ export const aura = css`@layer overlay {
 :host([view="shiny-tabs"]) {
 	display: block;
 
-	&::part(tabs) {
+	slot[part="tabs"] {
 		display: flex;
 	}
 }

@@ -14,7 +14,7 @@ export const Demonstration = view(use => (options: {
 		style: CSSResultGroup
 	}) => {
 
-	use.name(options.name)
+	use.name(`demo-${options.name}`)
 	use.styles(foundationCss, styleCss, options.style)
 
 	function codeblock(heading: string, code: string) {
@@ -32,14 +32,17 @@ export const Demonstration = view(use => (options: {
 
 	return html`
 		<div class=meta>
-			<h2>✨ ${options.name}</h2>
+			<h2>✨ shiny-${options.name}</h2>
 			<div class=explain>${options.explain}</div>
 			${auraViews.ShinyTabs
 				.props()
 				.children(html`
-					${options.snippets.map(([label]) => html`
-						<button>${label.button}</button>
-					`)}
+					${options.snippets.map(([label]) => (
+						auraViews.ShinyButton
+							.props()
+							.children(label.button)
+							.render()
+					))}
 					${options.snippets.map(([label, code]) => codeblock(label.text, code))}
 				`)
 				.render()}
