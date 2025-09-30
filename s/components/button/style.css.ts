@@ -16,8 +16,6 @@ export default css`@layer view {
 	color: var(--alpha);
 	background: transparent;
 	user-select: none;
-
-	outline: 3px solid yellow;
 }
 
 /* TODO */
