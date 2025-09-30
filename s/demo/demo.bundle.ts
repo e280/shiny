@@ -69,9 +69,9 @@ dom.register({ShinyDemo: view.component(use => {
 				[labels.css, `
 					shiny-copy {
 						font-size: 1em;
-						--good: #0f4;
-						--bad: #f40;
-						--invalid: #8888;
+						--happy: #0fa;
+						--angry: #f50;
+						--lame: #8888;
 						--inactive-opacity: 0.5;
 					}
 				`],
@@ -93,7 +93,9 @@ dom.register({ShinyDemo: view.component(use => {
 				[labels.html, `
 					<shiny-drawer button side=left>
 						<header>example</header>
-						<section slot=plate>lorem kettlebell..</section>
+						<section slot=plate>
+							lorem kettlebell..
+						</section>
 					</shiny-drawer>
 				`],
 				[labels.view, `
@@ -101,7 +103,9 @@ dom.register({ShinyDemo: view.component(use => {
 						.props({button: true, side: "left"})
 						.children(html\`
 							<header>example</header>
-							<section slot=plate>lorem kettlebell..</section>
+							<section slot=plate>
+								lorem kettlebell..
+							</section>
 						\`)
 						.render()
 				`],
@@ -109,9 +113,12 @@ dom.register({ShinyDemo: view.component(use => {
 					shiny-drawer {
 						--button-size: 2em;
 						--anim-duration: 200ms;
-						--blanket-bg: #1118;
 						--blanket-backdrop-filter: blur(0.5em);
-						--inactive-opacity: 0.5;
+						--blanket-bg: color-mix(
+							in oklab,
+							transparent,
+							var(--bg)
+						);
 					}
 				`],
 			],
@@ -124,6 +131,7 @@ dom.register({ShinyDemo: view.component(use => {
 						<p class=lipsum>${lipsum()}</p>
 					</header>
 					<section slot=plate>
+						<p class=lipsum>${lipsum()}</p>
 						<p class=lipsum>${lipsum()}</p>
 					</section>
 				`)

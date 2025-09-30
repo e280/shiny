@@ -8,8 +8,8 @@ export default css`@layer view {
 	height: 100%;
 	--button-size: 2em;
 	--anim-duration: 200ms;
-	--blanket-bg: #1118;
 	--blanket-backdrop-filter: blur(0.5em);
+	--blanket-bg: color-mix(in oklab, transparent, var(--bg));
 }
 
 .shell {

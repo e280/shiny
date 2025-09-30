@@ -22,18 +22,18 @@ button {
 }
 
 [data-status="invalid"] {
-	color: var(--invalid);
+	color: var(--lame);
 }
 
 [data-status="good"] {
 	opacity: 1;
-	color: var(--good);
+	color: var(--happy);
 	filter: drop-shadow(0 0 0.3em color-mix(in oklab, transparent, currentColor 50%));
 }
 
 [data-status="bad"] {
 	opacity: 1;
-	color: var(--bad);
+	color: var(--angry);
 	filter: drop-shadow(0 0 0.3em color-mix(in oklab, transparent, currentColor 50%));
 }
 

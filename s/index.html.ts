@@ -28,7 +28,7 @@ export default ssg.page(import.meta.url, async orb => ({
 
 		<section>
 			<p>web ui components</p>
-			<p><a href="https://github.com/e280/shiny#readme">readme</a></p>
+			<p><a href="https://github.com/e280/shiny#readme">readme for installation</a></p>
 		</section>
 
 		<shiny-demo></shiny-demo>

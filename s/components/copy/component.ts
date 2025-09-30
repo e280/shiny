@@ -57,11 +57,15 @@ export class ShinyCopy extends (
 		`
 	})
 	.component(class extends ShinyElement {
-		attrs = dom.attrs(this).spec({
+		#attrs = dom.attrs(this).spec({
 			text: String,
 			ms: Number,
 		})
+		get text() { return this.#attrs.text }
+		set text(v) { this.#attrs.text = v }
+		get ms() { return this.#attrs.ms }
+		set ms(v) { this.#attrs.ms = v }
 	})
-	.props(el => [el.context, el.attrs.text, el.attrs.ms])
+	.props(el => [el.context, el.text, el.ms])
 ) {}
 
