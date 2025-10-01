@@ -1,23 +1,20 @@
 
 import {ssg, html} from "@e280/scute"
 
-const title = "shiny"
-const description = "✨ web ui components"
-const domain = "shiny.e280.org"
 const favicon = "/assets/favicon.png"
 
 export default ssg.page(import.meta.url, async orb => ({
-	title,
+	title: "shiny",
 	js: "demo/demo.bundle.min.js",
 	css: "demo/demo.css",
 	favicon,
 	dark: true,
 	socialCard: {
 		themeColor: "#d068ff",
-		title,
-		description,
 		siteName: "@e280/shiny",
-		image: "https://" + domain + favicon,
+		title: "✨shiny✨",
+		description: "web ui components",
+		image: "https://shiny.e280.org" + favicon,
 	},
 
 	body: html`
