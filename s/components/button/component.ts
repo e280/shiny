@@ -11,8 +11,6 @@ export class ShinyButton extends (
 		use.styles(foundationCss, context.theme, styleCss)
 
 		const attrs = use.attrs.spec({
-			role: String,
-			tabindex: Number,
 			disabled: Boolean,
 			hidden: Boolean,
 		})

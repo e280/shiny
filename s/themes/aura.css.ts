@@ -9,8 +9,25 @@ export const aura = css`@layer overlay {
 	})}
 }
 
-:host([view="shiny-button"])::part(button) {
-	padding: 0.5em;
+:host([view="shiny-button"]) {
+	position: relative;
+
+	--padding: 0.3em 0.7em;
+	border-radius: 2em;
+	background: linear-gradient(
+		to bottom right,
+		cyan,
+		blue
+	);
+	border: none;
+	box-shadow: 0.1em 0.2em 0.3em #0004;
+
+	&::before {
+		content: "";
+		display: block;
+		inset: 0;
+		background: red;
+	}
 }
 
 :host([view="shiny-drawer"]) {
@@ -43,6 +60,17 @@ export const aura = css`@layer overlay {
 
 	slot[part="tabs"] {
 		display: flex;
+
+		&::slotted(:not([data-last])) {
+			border-right: none;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
+		}
+
+		&::slotted(:not([data-first])) {
+			border-top-left-radius: 0;
+			border-bottom-left-radius: 0;
+		}
 	}
 }
 

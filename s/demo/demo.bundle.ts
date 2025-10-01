@@ -55,6 +55,59 @@ dom.register({ShinyDemo: view.component(use => {
 
 	const demonstrations = [
 		Demonstration({
+			name: "tabs",
+			explain: html`
+				<p>button bar. panels optional.</p>
+			`,
+			snippets: [
+				[labels.html, `
+					<shiny-tabs>
+						<shiny-button>tab1</shiny-button>
+						<shiny-button>tab2</shiny-button>
+						<shiny-button>tab3</shiny-button>
+						<div slot=panel>panel1</div>
+						<div slot=panel>panel2</div>
+						<div slot=panel>panel3</div>
+					</shiny-tabs>
+				`],
+				[labels.view, `
+					ShinyTabs
+						.props()
+						.children(html\`
+							\${ShinyButton.props().children("tab1").render()}
+							\${ShinyButton.props().children("tab2").render()}
+							\${ShinyButton.props().children("tab2").render()}
+							<div slot=panel>panel1</div>
+							<div slot=panel>panel2</div>
+							<div slot=panel>panel3</div>
+						\`)
+						.render()
+				`],
+				[labels.css, `
+					shiny-tabs::part(tabs) {}
+					shiny-tabs::part(panels) {}
+				`],
+			],
+			content: views.ShinyTabs
+				.props()
+				.children(html`
+					${views.ShinyButton.props().children("tab1").render()}
+					${views.ShinyButton.props().children("tab2").render()}
+					${views.ShinyButton.props().children("tab2").render()}
+					<p slot=panel class=lipsum>${lipsum()}</p>
+					<p slot=panel class=lipsum>${lipsum()}</p>
+					<p slot=panel class=lipsum>${lipsum()}</p>
+				`)
+				.render(),
+			style: css`
+				.content {
+					justify-content: start;
+					p { margin-top: 0.5em; }
+				}
+			`,
+		}),
+
+		Demonstration({
 			name: "button",
 			explain: html`
 				<p>clicky-clacky pressy button.</p>
@@ -196,59 +249,6 @@ dom.register({ShinyDemo: view.component(use => {
 				}
 			`,
 		}),
-
-		Demonstration({
-			name: "tabs",
-			explain: html`
-				<p>button bar. panels optional.</p>
-			`,
-			snippets: [
-				[labels.html, `
-					<shiny-tabs>
-						<button>tab1</button>
-						<button>tab2</button>
-						<button>tab3</button>
-						<div slot=panel>panel1</div>
-						<div slot=panel>panel2</div>
-						<div slot=panel>panel3</div>
-					</shiny-tabs>
-				`],
-				[labels.view, `
-					ShinyTabs
-						.props()
-						.children(html\`
-							<button>tab1</button>
-							<button>tab2</button>
-							<button>tab3</button>
-							<div slot=panel>panel1</div>
-							<div slot=panel>panel2</div>
-							<div slot=panel>panel3</div>
-						\`)
-						.render()
-				`],
-				[labels.css, `
-					shiny-tabs::part(tabs) {}
-					shiny-tabs::part(panels) {}
-				`],
-			],
-			content: views.ShinyTabs
-				.props()
-				.children(html`
-					<button>tab1</button>
-					<button>tab2</button>
-					<button>tab3</button>
-					<p slot=panel class=lipsum>${lipsum()}</p>
-					<p slot=panel class=lipsum>${lipsum()}</p>
-					<p slot=panel class=lipsum>${lipsum()}</p>
-				`)
-				.render(),
-			style: css`
-				.content {
-					justify-content: start;
-					p { margin-top: 0.5em; }
-				}
-			`,
-		}),
 	]
 
 	return html`
@@ -257,7 +257,7 @@ dom.register({ShinyDemo: view.component(use => {
 			${auraViews.ShinyTabs
 				.props(tabControl)
 				.children(viewsets.map(viewset => html`
-					<button>${viewset.label}</button>
+					${auraViews.ShinyButton.props().children(viewset.label).render()}
 				`))
 				.render()}
 		</div>

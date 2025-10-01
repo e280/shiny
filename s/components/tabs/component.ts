@@ -31,8 +31,11 @@ export class ShinyTabs extends (
 
 		for (const [index, tab] of $tabs().entries()) {
 			const active = (index === control.index)
-			dom.attrs(tab).booleans.active = active
-			dom.attrs(tab).booleans.disabled = active
+			const tabAttrs = dom.attrs(tab)
+			tabAttrs.booleans.disabled = active
+			tabAttrs.booleans["data-active"] = active
+			tabAttrs.booleans["data-first"] = (index === 0)
+			tabAttrs.booleans["data-last"] = (index === (control.length - 1))
 			tab.onclick = () => control.setIndex(index)
 		}
 
