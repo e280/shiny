@@ -5,8 +5,10 @@
 > *web ui components*
 
 - 💁 ***see all the components at https://shiny.e280.org/*** 👈
-- 👷 built with [🦝sly](https://github.com/e280/sly) and [🔥lit](https://lit.dev/)
 - 🎭 duality: all components are available as ***web components*** or ***sly views***
+- 👷 built with [🦝sly](https://github.com/e280/sly) and [🔥lit](https://lit.dev/)
+- 🎨 totally customizable, via theme presets, custom themes, css vars and parts
+- 🧩 using [tabler icons](https://github.com/tabler/tabler-icons)
 - 🧑‍💻 a project by https://e280.org/
 
 
