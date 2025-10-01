@@ -9,26 +9,49 @@ export const aura = css`@layer overlay {
 	})}
 }
 
-xxx:host([view="shiny-button"]) {
+:host([view="shiny-button"]) {
 	position: relative;
 
+	--b-bg: var(--calm);
 	--padding: 0.3em 0.7em;
+
+	color: white;
 	border-radius: 2em;
+	background: var(--b-bg);
+	border: none;
+
+	font-weight: medium;
+	text-shadow: 0.1em 0.1em 0.1em #0004;
+	box-shadow: 0.1em 0.2em 0.3em #0002;
+}
+
+:host([view="shiny-button"][angry]) {
+	--b-bg: var(--angry);
+}
+
+:host([view="shiny-button"][border-gradient]) {
+	border: none;
 	background: linear-gradient(
 		to bottom right,
-		cyan,
-		blue
+		color-mix(in oklab, var(--b-bg), white 80%),
+		color-mix(in oklab, var(--b-bg), black 40%)
 	);
-	border: none;
-	box-shadow: 0.1em 0.2em 0.3em #0004;
 
 	&::before {
 		content: "";
 		display: block;
 		position: absolute;
-		inset: 0;
-		background: red;
+		z-index: 0;
+		inset: 0.15em;
+		border-radius: inherit;
+		background: color-mix(in oklab, var(--b-bg), #0004 50%);
 	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
 }
 
 :host([view="shiny-drawer"]) {

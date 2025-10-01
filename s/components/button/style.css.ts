@@ -41,6 +41,7 @@ button {
 	color: inherit;
 	cursor: inherit;
 	outline: inherit;
+	text-shadow: inherit;
 
 	display: inline-flex;
 	justify-content: center;

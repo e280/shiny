@@ -132,12 +132,23 @@ dom.register({ShinyDemo: view.component(use => {
 					}
 				`],
 			],
-			content: (
+			content: [
 				views.ShinyButton
 					.props()
 					.children("hello")
-					.render()
-			),
+					.render(),
+				views.ShinyButton
+					.props()
+					.attr("border-gradient", true)
+					.children("hello")
+					.render(),
+				views.ShinyButton
+					.props()
+					.attr("angry", true)
+					.attr("border-gradient", true)
+					.children("hello")
+					.render(),
+			],
 			style: css`
 				.content sly-view {
 					font-size: 2em;
