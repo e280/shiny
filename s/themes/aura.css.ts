@@ -9,15 +9,15 @@ export const aura = css`@layer overlay {
 	})}
 }
 
-:host([view="shiny-button"]) {
+:host([view="shiny-button"]:not([plain])) {
 	position: relative;
 
-	--b-bg: var(--calm);
+	--buttoncolor: var(--calm);
 	--padding: 0.3em 0.7em;
 
 	color: white;
 	border-radius: 2em;
-	background: var(--b-bg);
+	background: var(--buttoncolor);
 	border: none;
 
 	font-weight: medium;
@@ -25,16 +25,20 @@ export const aura = css`@layer overlay {
 	box-shadow: 0.1em 0.2em 0.3em #0002;
 }
 
-:host([view="shiny-button"][angry]) {
-	--b-bg: var(--angry);
-}
+:host([view="shiny-button"][lame]) { --buttoncolor: var(--lame); }
+:host([view="shiny-button"][angry]) { --buttoncolor: var(--angry); }
+:host([view="shiny-button"][zesty]) { --buttoncolor: var(--zesty); }
+:host([view="shiny-button"][happy]) { --buttoncolor: var(--happy); }
+:host([view="shiny-button"][calm]) { --buttoncolor: var(--calm); }
+:host([view="shiny-button"][sad]) { --buttoncolor: var(--sad); }
+:host([view="shiny-button"][quirky]) { --buttoncolor: var(--quirky); }
 
-:host([view="shiny-button"][border-gradient]) {
+:host([view="shiny-button"][gradient]:not([plain])) {
 	border: none;
 	background: linear-gradient(
 		to bottom right,
-		color-mix(in oklab, var(--b-bg), white 80%),
-		color-mix(in oklab, var(--b-bg), black 40%)
+		color-mix(in oklab, var(--buttoncolor), white 40%),
+		color-mix(in oklab, var(--buttoncolor), black 20%)
 	);
 
 	&::before {
@@ -44,14 +48,13 @@ export const aura = css`@layer overlay {
 		z-index: 0;
 		inset: 0.15em;
 		border-radius: inherit;
-		background: color-mix(in oklab, var(--b-bg), #0004 50%);
+		background: color-mix(in oklab, var(--buttoncolor), #0004 50%);
 	}
 
 	> * {
 		position: relative;
 		z-index: 1;
 	}
-
 }
 
 :host([view="shiny-drawer"]) {
@@ -76,30 +79,6 @@ export const aura = css`@layer overlay {
 :host([view="shiny-drawer"]:state(right)) {
 	&::part(tray) {
 		border-bottom-left-radius: 0.5em;
-	}
-}
-
-:host([view="shiny-tabs"]) {
-	slot[part="tabs"] {
-		display: flex;
-
-		&::slotted(:not([data-last], [data-next-is-active])) {
-			border-right: none;
-		}
-
-		&::slotted([data-active]:not([data-first])) {
-			border-left: none;
-		}
-
-		&::slotted(:not([data-last])) {
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
-		}
-
-		&::slotted(:not([data-first])) {
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-		}
 	}
 }
 

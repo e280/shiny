@@ -8,12 +8,11 @@ export default css`@layer view {
 	width: max-content;
 	height: max-content;
 
-	--padding: var(--shiny-button, 0.3em);
+	--padding: 0.3em;
 	border-radius: 0.2em;
 	border: 0.1em solid currentColor;
 
 	cursor: pointer;
-	color: var(--alpha);
 	background: transparent;
 	user-select: none;
 }
@@ -30,13 +29,18 @@ export default css`@layer view {
 	display: none !important;
 }
 
-:host([angry]) {
-	color: var(--angry);
-}
+:host([lame]) { color: var(--lame); }
+:host([angry]) { color: var(--angry); }
+:host([zesty]) { color: var(--zesty); }
+:host([happy]) { color: var(--happy); }
+:host([calm]) { color: var(--calm); }
+:host([sad]) { color: var(--sad); }
+:host([quirky]) { color: var(--quirky); }
 
 button {
 	background: transparent;
 	border: none;
+
 	font: inherit;
 	color: inherit;
 	cursor: inherit;

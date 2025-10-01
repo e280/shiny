@@ -55,6 +55,10 @@ p.lipsum {
 
 	[view="shiny-tabs"] {
 		gap: 0.5em;
+		&::part(tabs) {
+			font-size: 0.8em;
+			opacity: 0.8;
+		}
 	}
 
 	.codes {

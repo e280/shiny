@@ -20,8 +20,8 @@ export function defaultCssVars(): CssVars {
 	return {
 		"bg": "#111",
 		"alpha": "#def",
-		"lame": "#8888",
 		"inactive-opacity": "0.5",
+		"lame": "#8888",
 		"angry": "#f50",
 		"zesty": "#cf0",
 		"happy": "#0fa",
