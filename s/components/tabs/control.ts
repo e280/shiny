@@ -9,14 +9,14 @@ export class TabControl {
 		this.$index.value = start
 	}
 
-	#clamp(index: number) {
+	clamp(index: number) {
 		index = Math.min(index, this.length - 1)
 		index = Math.max(index, 0)
 		return index
 	}
 
 	get index() {
-		return this.#clamp(this.$index.get())
+		return this.clamp(this.$index.get())
 	}
 
 	async setIndex(index: number) {
@@ -24,7 +24,7 @@ export class TabControl {
 	}
 
 	async shimmy(delta: number) {
-		const index = this.#clamp(this.index + delta)
+		const index = this.clamp(this.index + delta)
 		return this.setIndex(index)
 	}
 }

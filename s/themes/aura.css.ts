@@ -9,7 +9,7 @@ export const aura = css`@layer overlay {
 	})}
 }
 
-:host([view="shiny-button"]) {
+xxx:host([view="shiny-button"]) {
 	position: relative;
 
 	--padding: 0.3em 0.7em;
@@ -25,6 +25,7 @@ export const aura = css`@layer overlay {
 	&::before {
 		content: "";
 		display: block;
+		position: absolute;
 		inset: 0;
 		background: red;
 	}
@@ -56,13 +57,18 @@ export const aura = css`@layer overlay {
 }
 
 :host([view="shiny-tabs"]) {
-	display: block;
-
 	slot[part="tabs"] {
 		display: flex;
 
-		&::slotted(:not([data-last])) {
+		&::slotted(:not([data-last], [data-next-is-active])) {
 			border-right: none;
+		}
+
+		&::slotted([data-active]:not([data-first])) {
+			border-left: none;
+		}
+
+		&::slotted(:not([data-last])) {
 			border-top-right-radius: 0;
 			border-bottom-right-radius: 0;
 		}

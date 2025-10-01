@@ -29,6 +29,12 @@ export class ShinyTabs extends (
 		attrs.index = control.$index()
 		control.length = $tabs().length
 
+		function isNeighborActive(index: number, delta: number) {
+			const nextIndex = control.clamp(index + delta)
+			if (nextIndex === index) return false
+			return (nextIndex === control.index)
+		}
+
 		for (const [index, tab] of $tabs().entries()) {
 			const active = (index === control.index)
 			const tabAttrs = dom.attrs(tab)
@@ -36,6 +42,8 @@ export class ShinyTabs extends (
 			tabAttrs.booleans["data-active"] = active
 			tabAttrs.booleans["data-first"] = (index === 0)
 			tabAttrs.booleans["data-last"] = (index === (control.length - 1))
+			tabAttrs.booleans["data-next-is-active"] = isNeighborActive(index, 1)
+			tabAttrs.booleans["data-previous-is-active"] = isNeighborActive(index, -1)
 			tab.onclick = () => control.setIndex(index)
 		}
 

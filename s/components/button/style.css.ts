@@ -3,13 +3,12 @@ import {css} from "lit"
 export default css`@layer view {
 
 :host {
-	--padding: var(--shiny-button, 0.3em);
-
 	opacity: 0.8;
-	display: contents;
-	justify-content: center;
-	align-items: center;
+	display: inline-flex;
+	width: max-content;
+	height: max-content;
 
+	--padding: var(--shiny-button, 0.3em);
 	border-radius: 0.2em;
 	border: 0.1em solid currentColor;
 
@@ -36,8 +35,19 @@ export default css`@layer view {
 }
 
 button {
-	all: inherit;
+	background: transparent;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: inherit;
+	outline: inherit;
+
 	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
 	padding: var(--padding);
 }
 

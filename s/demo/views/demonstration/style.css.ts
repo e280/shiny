@@ -53,6 +53,10 @@ p.lipsum {
 		color: var(--prime);
 	}
 
+	[view="shiny-tabs"] {
+		gap: 0.5em;
+	}
+
 	.codes {
 		display: flex;
 		flex-direction: column;
