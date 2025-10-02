@@ -85,6 +85,6 @@ export class ShinyDrawer extends (
 		get open() { return this.control.open }
 		get close() { return this.control.close }
 	})
-	.props(el => [el.context, el.control] as const)
+	.props(el => [el.context, {control: el.control}] as const)
 ) {}
 
