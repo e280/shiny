@@ -39,6 +39,9 @@ export default css`@layer view {
 
 header {
 	display: flex;
+	flex-wrap: wrap;
+	place-content: center center;
+	gap: 0.5em;
 
 	h2 {
 		flex: 1 1 auto;

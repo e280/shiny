@@ -8,7 +8,7 @@ export default css`@layer view {
 	gap: 0.5em;
 
 	> * {
-		flex: 1 1 0;
+		flex: 1 1 10em;
 		min-width: 0;
 	}
 }

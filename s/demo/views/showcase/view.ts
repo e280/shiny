@@ -25,27 +25,25 @@ export const Showcase = view(use => (options: {
 	return html`
 		<header>
 			<h2>✨shiny-${options.name}✨</h2>
-			<nav>
-				${auraViews.ShinyTabs
-					.props(exhibitTabControl)
-					.children(options.exhibits.map(p =>
-						auraViews.ShinyButton
-							.props()
-							.attr("sad")
-							.children(p.label)
-							.render()
-					))
-					.render()}
-				${auraViews.ShinyTabs
-					.props(themeTabControl)
-					.children(viewsets.map(([theme]) =>
-						auraViews.ShinyButton
-							.props()
-							.children(theme)
-							.render()
-					))
-					.render()}
-			</nav>
+			${auraViews.ShinyTabs
+				.props(exhibitTabControl)
+				.children(options.exhibits.map(p =>
+					auraViews.ShinyButton
+						.props()
+						.attr("sad")
+						.children(p.label)
+						.render()
+				))
+				.render()}
+			${auraViews.ShinyTabs
+				.props(themeTabControl)
+				.children(viewsets.map(([theme]) =>
+					auraViews.ShinyButton
+						.props()
+						.children(theme)
+						.render()
+				))
+				.render()}
 		</header>
 
 		${Exhibit(exhibit, exhibitViews, options.style)}
