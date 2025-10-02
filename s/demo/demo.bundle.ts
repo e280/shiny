@@ -1,14 +1,11 @@
 
-import {css, html} from "lit"
+import {css} from "lit"
 import {dom, view} from "@e280/sly"
-import {Showcase} from "./views/showcase/view.js"
-import {makeLipsumDispenser} from "./utils/lipsum.js"
+import {lipsumDispenser} from "./lipsum.js"
 import {copyShowcase} from "../components/copy/showcase.js"
+import {tabsShowcase} from "../components/tabs/showcase.js"
 import {buttonShowcase} from "../components/button/showcase.js"
-import { drawerShowcase } from "../components/drawer/showcase.js"
-
-const dispenser = makeLipsumDispenser()
-const lipsum = () => dispenser.takeFirst()
+import {drawerShowcase} from "../components/drawer/showcase.js"
 
 dom.register({ShinyDemo: view.component(use => {
 	use.styles(css`
@@ -36,74 +33,14 @@ dom.register({ShinyDemo: view.component(use => {
 		}
 	`)
 
-	dispenser.takeAll()
+	lipsumDispenser.takeAll()
 
-	const demonstrations = [
-		buttonShowcase,
-		copyShowcase,
-		drawerShowcase,
-
-	// 	Demonstration({
-	// 		name: "tabs",
-	// 		explain: html`
-	// 			<p>button bar. panels optional.</p>
-	// 		`,
-	// 		snippets: [
-	// 			[labels.html, `
-	// 				<shiny-tabs>
-	// 					<shiny-button>tab1</shiny-button>
-	// 					<shiny-button>tab2</shiny-button>
-	// 					<shiny-button>tab3</shiny-button>
-	// 					<div slot=panel>panel1</div>
-	// 					<div slot=panel>panel2</div>
-	// 					<div slot=panel>panel3</div>
-	// 				</shiny-tabs>
-	// 			`],
-	// 			[labels.view, `
-	// 				ShinyTabs
-	// 					.props()
-	// 					.children(html\`
-	// 						\${ShinyButton.props()
-	// 							.children("tab1").render()}
-	// 						\${ShinyButton.props()
-	// 							.children("tab2").render()}
-	// 						\${ShinyButton.props()
-	// 							.children("tab3").render()}
-	// 						<div slot=panel>panel1</div>
-	// 						<div slot=panel>panel2</div>
-	// 						<div slot=panel>panel3</div>
-	// 					\`)
-	// 					.render()
-	// 			`],
-	// 			[labels.css, `
-	// 				shiny-tabs {
-	// 					&::part(tabs) {}
-	// 					&::part(panels) {}
-	// 					> shiny-button {}
-	// 				}
-	// 			`],
-	// 		],
-	// 		content: views.ShinyTabs
-	// 			.props()
-	// 			.children(html`
-	// 				${views.ShinyButton.props().children("tab1").render()}
-	// 				${views.ShinyButton.props().children("tab2").render()}
-	// 				${views.ShinyButton.props().children("tab3").render()}
-	// 				<p slot=panel class=lipsum>${lipsum()}</p>
-	// 				<p slot=panel class=lipsum>${lipsum()}</p>
-	// 				<p slot=panel class=lipsum>${lipsum()}</p>
-	// 			`)
-	// 			.render(),
-	// 		style: css`
-	// 			.content {
-	// 				justify-content: start;
-	// 				p { margin-top: 0.5em; }
-	// 			}
-	// 		`,
-	// 	}),
+	return [
+		buttonShowcase(),
+		copyShowcase(),
+		drawerShowcase(),
+		tabsShowcase(),
 	]
-
-	return demonstrations
 })})
 
 console.log("✨shiny✨")

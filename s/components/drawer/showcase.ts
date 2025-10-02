@@ -2,7 +2,11 @@
 import {css, html} from "lit"
 import {lipsum} from "../../demo/lipsum.js"
 import {Showcase} from "../../demo/views/showcase/view.js"
-import { ExhibitParams } from "../../demo/views/exhibit/view.js"
+import {ExhibitParams} from "../../demo/views/exhibit/view.js"
+
+const lip1 = lipsum()
+const lip2 = lipsum()
+const lip3 = lipsum()
 
 const cssSnippet = `
 	shiny-drawer {
@@ -46,18 +50,18 @@ const makeExhibit = (side: "left" | "right"): ExhibitParams => ({
 				<header>
 					<h2>example drawer</h2>
 					<p>you can put any content in here.</p>
-					<p class=lipsum>${lipsum()}</p>
+					<p class=lipsum>${lip1}</p>
 				</header>
 				<section slot=plate>
-					<p class=lipsum>${lipsum()}</p>
-					<p class=lipsum>${lipsum()}</p>
+					<p class=lipsum>${lip2}</p>
+					<p class=lipsum>${lip3}</p>
 				</section>
 			`)
 			.render()}
 	`,
 })
 
-export const drawerShowcase = Showcase({
+export const drawerShowcase = () => Showcase({
 	name: "drawer",
 	style: css`
 		.box sly-view {

@@ -11,7 +11,7 @@ const cssSnippet = `
 	}
 `
 
-export const buttonShowcase = Showcase({
+export const buttonShowcase = () => Showcase({
 	name: "button",
 	style: css`
 		.box {

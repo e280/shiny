@@ -12,7 +12,7 @@ const cssSnippet = `
 	}
 `
 
-export const copyShowcase = Showcase({
+export const copyShowcase = () => Showcase({
 	name: "copy",
 	style: css`
 		.box {
