@@ -3,7 +3,8 @@ import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {Showcase} from "./views/showcase/view.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
-import { buttonShowcase } from "../components/button/showcase.js"
+import {copyShowcase} from "../components/copy/showcase.js"
+import {buttonShowcase} from "../components/button/showcase.js"
 
 const dispenser = makeLipsumDispenser()
 const lipsum = () => dispenser.takeFirst()
@@ -38,84 +39,8 @@ dom.register({ShinyDemo: view.component(use => {
 
 	const demonstrations = [
 		buttonShowcase,
+		copyShowcase,
 
-	// 	Demonstration({
-	// 		name: "button",
-	// 		explain: html`
-	// 			<p>clicky-clacky pressy button.</p>
-	// 		`,
-	// 		snippets: [
-	// 			[labels.html, `
-	// 				<shiny-button>hello</shiny-button>
-	// 			`],
-	// 			[labels.view, `
-	// 				ShinyButton
-	// 					.props()
-	// 					.children("hello")
-	// 					.render()
-	// 			`],
-	// 			[labels.css, `
-	// 				shiny-button {
-	// 					font-size: 1em;
-	// 					--happy: #0fa;
-	// 					--angry: #f50;
-	// 					--lame: #8888;
-	// 					--inactive-opacity: 0.5;
-	// 				}
-	// 			`],
-	// 		],
-	// 		content: [
-	// 			views.ShinyButton.props()
-	// 				.children("button")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("gradient", true)
-	// 				.children("gradient")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("angry", true)
-	// 				.attr("gradient", true)
-	// 				.children("angry")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("happy", true)
-	// 				.attr("gradient", true)
-	// 				.children("happy")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("zesty", true)
-	// 				.attr("gradient", true)
-	// 				.children("zesty")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("sad", true)
-	// 				.attr("gradient", true)
-	// 				.children("sad")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("quirky", true)
-	// 				.attr("gradient", true)
-	// 				.children("quirky")
-	// 				.render(),
-	// 			views.ShinyButton.props()
-	// 				.attr("plain", true)
-	// 				.children("plain")
-	// 				.render(),
-	// 		],
-	// 		style: css`
-	// 			.content {
-	// 				flex-direction: row;
-	// 				flex-wrap: wrap;
-	// 				align-content: center;
-	// 				gap: 0.5em;
-	//
-	// 				sly-view {
-	// 					font-size: 1.2em;
-	// 				}
-	// 			}
-	// 		`,
-	// 	}),
-	//
 	// 	Demonstration({
 	// 		name: "tabs",
 	// 		explain: html`
@@ -171,36 +96,6 @@ dom.register({ShinyDemo: view.component(use => {
 	// 			.content {
 	// 				justify-content: start;
 	// 				p { margin-top: 0.5em; }
-	// 			}
-	// 		`,
-	// 	}),
-	//
-	// 	Demonstration({
-	// 		name: "copy",
-	// 		explain: html`
-	// 			<p>click-to-copy text button.</p>
-	// 		`,
-	// 		snippets: [
-	// 			[labels.html, `
-	// 				<shiny-copy text="hello world"></shiny-copy>
-	// 			`],
-	// 			[labels.view, `
-	// 				ShinyCopy("hello world")
-	// 			`],
-	// 			[labels.css, `
-	// 				shiny-copy {
-	// 					font-size: 1em;
-	// 					--happy: #0fa;
-	// 					--angry: #f50;
-	// 					--lame: #8888;
-	// 					--inactive-opacity: 0.5;
-	// 				}
-	// 			`],
-	// 		],
-	// 		content: views.ShinyCopy("hello world"),
-	// 		style: css`
-	// 			.content sly-view {
-	// 				font-size: 4em;
 	// 			}
 	// 		`,
 	// 	}),

@@ -33,6 +33,8 @@ export class ShinyCopy extends (
 		async function click() {
 			if (text === undefined) return
 			try {
+				if (use.attrs.booleans.fail)
+					throw new Error("copy failed on purpose for testing purposes")
 				await navigator.clipboard.writeText(text)
 				await statusFlash("good")
 			}
@@ -47,7 +49,7 @@ export class ShinyCopy extends (
 			case "invalid": return clipboardSvg
 			case "good": return clipboardCheckFilledSvg
 			case "bad": return clipboardXFilledSvg
-			default: throw new Error(`invalid copy status`)
+			default: throw new Error(`unknown copy status`)
 		}})()
 
 		return html`
