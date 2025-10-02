@@ -45,29 +45,33 @@
     ```ts
     const {components, views} = shiny({theme: themes.aura})
     ```
-    - `aura` — (default) cosmic dreamy seaside nebula vibes
-    - `plain` — bare-bones spartan theme, buttons look lame
 - (optional) register the components
     ```ts
     dom.register(components)
     ```
     - or use views instead of components
-- time to go shopping at https://shiny.e280.org/
+- go shopping at https://shiny.e280.org/
+
+
+
+<br/><br/>
+
+## 🎨 themes
+
+- **`aura`** — cosmic dreamy seaside nebula vibes
+- `plain` — bare-bones spartan theme, for diy, buttons look lame
 
 
 
 <br/><br/>
 
 ## 😎 views are for the cool kids
-- hey, remember those `views` you got from the install snippet?
-    ```ts
-    const {components, views} = shiny({theme: themes.aura})
-    ```
+- hey, remember those `views` you got from the web app install snippet?
 - well you can yoink out a view you wanna use
     ```ts
     const {ShinyCopy} = views
     ```
-- then you can render it directly in your lit templates
+- then you can use 'em directly in your lit templates
     ```ts
     import {html} from "lit"
     import {dom, view} from "@e280/sly"
