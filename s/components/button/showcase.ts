@@ -3,7 +3,7 @@ import {css, html} from "lit"
 import {Showcase} from "../../demo/views/showcase/view.js"
 
 const cssSnippet = `
-	shiny-button {
+	[view="shiny-button"] {
 		--padding: 0.3em;
 		font-size: 1em;
 		color: currentColor;

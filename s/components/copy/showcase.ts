@@ -3,7 +3,7 @@ import {css, html} from "lit"
 import {Showcase} from "../../demo/views/showcase/view.js"
 
 const cssSnippet = `
-	shiny-copy {
+	[view="shiny-copy"] {
 		font-size: 1em;
 		--happy: #0fa;
 		--angry: #f50;

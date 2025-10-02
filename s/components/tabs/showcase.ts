@@ -8,7 +8,7 @@ const lip2 = lipsum()
 const lip3 = lipsum()
 
 const cssSnippet = `
-	shiny-tabs {
+	[view="shiny-tabs"] {
 		&::part(tabs) {}
 		&::part(panels) {}
 		> shiny-button {}

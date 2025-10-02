@@ -6,7 +6,7 @@ import {foundationCss} from "../foundation.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyExample extends (
-	view(use => (context: ShinyContext, start: number) => {
+	view(use => (context: ShinyContext, start = 1) => {
 		use.name("shiny-example")
 		use.styles(foundationCss, context.theme, styleCss)
 
@@ -22,6 +22,6 @@ export class ShinyExample extends (
 	.component(class extends ShinyElement {
 		attrs = dom.attrs(this).spec({start: Number})
 	})
-	.props(el => [el.context, el.attrs.start ?? 1] as const)
+	.props(el => [el.context, el.attrs.start] as const)
 ) {}
 

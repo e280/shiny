@@ -9,7 +9,7 @@ const lip2 = lipsum()
 const lip3 = lipsum()
 
 const cssSnippet = `
-	shiny-drawer {
+	[view="shiny-drawer"] {
 		--button-size: 2em;
 		--anim-duration: 200ms;
 		--slate-hidden-opacity: 1;
