@@ -11,7 +11,12 @@ const cssSnippet = `
 	[view="shiny-tabs"] {
 		&::part(tabs) {}
 		&::part(panels) {}
-		> shiny-button {}
+
+		/* buttons */
+		> :not([slot="panel"]) {}
+
+		/* panels */
+		> [slot="panel"] {}
 	}
 `
 
