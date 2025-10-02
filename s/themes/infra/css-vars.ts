@@ -5,7 +5,6 @@ export type CssVars = {
 	"bg": string
 	"alpha": string
 	"lame": string
-	"inactive-opacity": string
 
 	// normative color vibes
 	"angry": string // red
@@ -14,13 +13,16 @@ export type CssVars = {
 	"calm": string // cyan
 	"sad": string // blue
 	"quirky": string // magenta
+
+	"inactive-opacity": string
+	"anim-duration": string
 }
 
 export function defaultCssVars(): CssVars {
 	return {
 		"bg": "#111",
 		"alpha": "#def",
-		"inactive-opacity": "0.5",
+
 		"lame": "#8888",
 		"angry": "#f50",
 		"zesty": "#cf0",
@@ -28,6 +30,9 @@ export function defaultCssVars(): CssVars {
 		"calm": "#0af",
 		"sad": "#74f",
 		"quirky": "#f49",
+
+		"inactive-opacity": "0.5",
+		"anim-duration": "300ms",
 	}
 }
 

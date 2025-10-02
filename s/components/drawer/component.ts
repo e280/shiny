@@ -12,7 +12,7 @@ import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyDrawer extends (
 	view(use => (context: ShinyContext, options: {
-			button: boolean
+			button?: boolean
 			side?: "left" | "right"
 			control?: DrawerControl
 		}) => {
@@ -21,44 +21,46 @@ export class ShinyDrawer extends (
 		use.styles(foundationCss, context.theme, styleCss)
 		const states = use.once(() => new States(use.element))
 
-		const side = options.side ?? "left"
-		const drawer = use.once(() => (options.control ?? new DrawerControl()))
+		const button = options.button ?? use.attrs.booleans.button
+		const side = options.side ?? (use.attrs.strings.side === "right" ? "right" : "left")
+		const control = use.once(() => (options.control ?? new DrawerControl()))
 		states.assign(side)
 
 		use.mount(() => dom.events(window, {keydown: (event: KeyboardEvent) => {
 			if (event.code === "Escape")
-				drawer.close()
+				control.close()
 		}}))
 
-		dom.attrs(use.element).booleans.open = drawer.isOpen
+		dom.attrs(use.element).booleans.open = control.isOpen
+
+		function renderButton() {
+			return html`
+				<button @click="${control.toggle}">
+					${control.isOpen
+						? html`
+							<slot name=button-x>
+								${xSvg}
+							</slot>
+						`
+						: html`
+							<slot name=button>
+								${menu2Svg}
+							</slot>
+						`}
+				</button>
+			`
+		}
 
 		return html`
-			<div class=shell ?data-open="${drawer.isOpen}" data-side="${side}">
-				<slot name=plate ?inert="${drawer.isOpen}"></slot>
+			<div class=shell ?data-open="${control.isOpen}" data-side="${side}">
+				<slot name=plate ?inert="${control.isOpen}"></slot>
 
 				<div class=clipper>
-					<div part=blanket @click="${drawer.close}" ?inert="${!drawer.isOpen}"></div>
+					<div part=blanket @click="${control.close}" ?inert="${!control.isOpen}"></div>
 
 					<div part=tray>
-						<slot ?inert="${!drawer.isOpen}"></slot>
-
-						${options.button
-							? html`
-								<button @click="${drawer.toggle}">
-									${drawer.isOpen
-										? html`
-											<slot name=button-x>
-												${xSvg}
-											</slot>
-										`
-										: html`
-											<slot name=button>
-												${menu2Svg}
-											</slot>
-										`}
-								</button>
-							`
-							: null}
+						<slot part=slate ?inert="${!control.isOpen}"></slot>
+						${button ?renderButton() :null}
 					</div>
 				</div>
 			</div>
@@ -83,10 +85,6 @@ export class ShinyDrawer extends (
 		get open() { return this.control.open }
 		get close() { return this.control.close }
 	})
-	.props(el => [el.context, {
-		control: el.control,
-		button: el.button,
-		side: el.side,
-	}] as const)
+	.props(el => [el.context, el.control] as const)
 ) {}
 

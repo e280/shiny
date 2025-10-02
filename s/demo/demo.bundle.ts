@@ -5,6 +5,7 @@ import {Showcase} from "./views/showcase/view.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
 import {copyShowcase} from "../components/copy/showcase.js"
 import {buttonShowcase} from "../components/button/showcase.js"
+import { drawerShowcase } from "../components/drawer/showcase.js"
 
 const dispenser = makeLipsumDispenser()
 const lipsum = () => dispenser.takeFirst()
@@ -40,6 +41,7 @@ dom.register({ShinyDemo: view.component(use => {
 	const demonstrations = [
 		buttonShowcase,
 		copyShowcase,
+		drawerShowcase,
 
 	// 	Demonstration({
 	// 		name: "tabs",
@@ -96,81 +98,6 @@ dom.register({ShinyDemo: view.component(use => {
 	// 			.content {
 	// 				justify-content: start;
 	// 				p { margin-top: 0.5em; }
-	// 			}
-	// 		`,
-	// 	}),
-	//
-	// 	Demonstration({
-	// 		name: "drawer",
-	// 		explain: html`
-	// 			<p>slide-out panel. button optional.</p>
-	// 		`,
-	// 		snippets: [
-	// 			[labels.html, `
-	// 				<shiny-drawer button side=left>
-	// 					<header>example</header>
-	// 					<section slot=plate>
-	// 						lorem kettlebell..
-	// 					</section>
-	// 				</shiny-drawer>
-	// 			`],
-	// 			[labels.view, `
-	// 				ShinyDrawer
-	// 					.props({button: true, side: "left"})
-	// 					.children(html\`
-	// 						<header>example</header>
-	// 						<section slot=plate>
-	// 							lorem kettlebell..
-	// 						</section>
-	// 					\`)
-	// 					.render()
-	// 			`],
-	// 			[labels.css, `
-	// 				shiny-drawer {
-	// 					--button-size: 2em;
-	// 					--anim-duration: 200ms;
-	// 					--blanket-backdrop-filter: blur(0.5em);
-	// 					--blanket-bg: color-mix(
-	// 						in oklab,
-	// 						transparent,
-	// 						var(--bg)
-	// 					);
-	// 				}
-	// 			`],
-	// 		],
-	// 		content: views.ShinyDrawer
-	// 			.props({button: true})
-	// 			.children(html`
-	// 				<header>
-	// 					<h2>example drawer</h2>
-	// 					<p>you can put any content in here.</p>
-	// 					<p class=lipsum>${lipsum()}</p>
-	// 				</header>
-	// 				<section slot=plate>
-	// 					<p class=lipsum>${lipsum()}</p>
-	// 					<p class=lipsum>${lipsum()}</p>
-	// 				</section>
-	// 			`)
-	// 			.render(),
-	// 		style: css`
-	// 			.content sly-view {
-	// 				border-radius: 0.5em;
-	// 				overflow: hidden;
-	// 				--button-size: 3em;
-	//
-	// 				header {
-	// 					> * + * { margin-top: 0.5em; }
-	// 				}
-	//
-	// 				section {
-	// 					display: flex;
-	// 					flex-direction: column;
-	// 					justify-content: center;
-	// 					min-height: 100%;
-	// 					padding: 1em;
-	// 					padding-top: 3em;
-	// 					> * + * { margin-top: 0.5em; }
-	// 				}
 	// 			}
 	// 		`,
 	// 	}),

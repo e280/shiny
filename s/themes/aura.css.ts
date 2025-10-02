@@ -57,10 +57,10 @@ export const aura = css`@layer overlay {
 	}
 }
 
-:host([view="shiny-drawer"]) {
+:host([view="shiny-drawer"]:not([plain])) {
 	display: block;
 
-	&::part(tray) {
+	&::part(slate) {
 		padding: 1em;
 		background: linear-gradient(
 			to top right,
@@ -71,13 +71,13 @@ export const aura = css`@layer overlay {
 }
 
 :host([view="shiny-drawer"]:state(left)) {
-	&::part(tray) {
+	&::part(slate) {
 		border-bottom-right-radius: 0.5em;
 	}
 }
 
 :host([view="shiny-drawer"]:state(right)) {
-	&::part(tray) {
+	&::part(slate) {
 		border-bottom-left-radius: 0.5em;
 	}
 }

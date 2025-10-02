@@ -7,7 +7,6 @@ export default css`@layer view {
 	width: 100%;
 	height: 100%;
 	--button-size: 2em;
-	--anim-duration: 200ms;
 	--blanket-backdrop-filter: blur(0.5em);
 	--blanket-bg: color-mix(in oklab, transparent, var(--bg));
 }
@@ -52,12 +51,15 @@ export default css`@layer view {
 		height: auto;
 		max-height: 100%;
 
-		opacity: 1;
 		transform: translateX(-100%);
 		will-change: opacity, transform;
 		transition: all var(--anim-duration) ease;
 
-		> slot {
+		> [part="slate"] {
+			opacity: 0;
+			will-change: opacity;
+			transition: all var(--anim-duration) ease;
+
 			display: block;
 			height: 100%;
 			overflow-y: auto;
@@ -110,8 +112,10 @@ export default css`@layer view {
 			opacity: 1;
 		}
 		[part="tray"] {
-			opacity: 1;
 			transform: translateX(0%);
+			> [part="slate"] {
+				opacity: 1;
+			}
 		}
 	}
 }

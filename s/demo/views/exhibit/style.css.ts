@@ -70,6 +70,12 @@ export default css`@layer view {
 
 	border-radius: 0.5rem;
 	border: 1px dashed color-mix(in oklab, transparent, currentColor 30%);
+
+	p.lipsum {
+		opacity: 0.7;
+		font-family: serif;
+		font-style: italic;
+	}
 }
 
 }`
