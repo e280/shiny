@@ -44,7 +44,6 @@ button {
 	font: inherit;
 	color: inherit;
 	cursor: inherit;
-	outline: inherit;
 	text-shadow: inherit;
 
 	display: inline-flex;

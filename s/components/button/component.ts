@@ -1,12 +1,12 @@
 
 import {html} from "lit"
-import {view} from "@e280/sly"
+import {Content, view} from "@e280/sly"
 import styleCss from "./style.css.js"
 import {foundationCss} from "../foundation.css.js"
 import {ShinyContext, ShinyElement} from "../framework.js"
 
 export class ShinyButton extends (
-	view(use => (context: ShinyContext) => {
+	view(use => (context: ShinyContext, content?: Content) => {
 		use.name("shiny-button")
 		use.styles(foundationCss, context.theme, styleCss)
 
@@ -20,7 +20,7 @@ export class ShinyButton extends (
 				part=button
 				?disabled="${attrs.disabled}"
 				?hidden="${attrs.hidden}">
-					<slot></slot>
+					<slot>${content}</slot>
 			</button>
 		`
 	})

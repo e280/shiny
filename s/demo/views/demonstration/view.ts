@@ -3,7 +3,7 @@ import {untab} from "@e280/stz"
 import {Content, view} from "@e280/sly"
 import {CSSResultGroup, html} from "lit"
 import styleCss from "./style.css.js"
-import {auraViews} from "../../aura-views.js"
+import {auraViews} from "../../viewsets.js"
 import {foundationCss} from "../../../components/foundation.css.js"
 
 export const Demonstration = view(use => (options: {
