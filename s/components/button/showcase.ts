@@ -15,7 +15,7 @@ export const buttonShowcase = () => Showcase({
 	name: "button",
 	style: css`
 		.box {
-			> * { font-size: 2em; }
+			> * { font-size: 1.5em; }
 		}
 	`,
 	exhibits: [

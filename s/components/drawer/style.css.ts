@@ -8,6 +8,7 @@ export default css`@layer view {
 	height: 100%;
 	--button-size: 2em;
 	--blanket-backdrop-filter: blur(0.5em);
+	--slate-hidden-opacity: 1;
 	--blanket-bg: color-mix(in oklab, transparent, var(--bg));
 }
 
@@ -56,9 +57,9 @@ export default css`@layer view {
 		transition: all var(--anim-duration) ease;
 
 		> [part="slate"] {
-			opacity: 0;
+			opacity: var(--slate-hidden-opacity);
 			will-change: opacity;
-			transition: all var(--anim-duration) ease;
+			transition: opacity var(--anim-duration) ease;
 
 			display: block;
 			height: 100%;

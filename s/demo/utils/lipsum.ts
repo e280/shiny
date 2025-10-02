@@ -10,7 +10,7 @@ export const makeLipsumDispenser = () => new Dispenser(() => [
 
 	`lorem arch dolor sit amet, pacman -Syu elit rolling release tempor breakage. i3-gaps commodo tiling, bspwm magna culpa xinitrc. alias neovim configs in .dotfiles forest, r/unixporn veniam rice showcase perspiciatis.`,
 
-	`lorem authlocal dolor sit amet, user-sovereign identity elit, cryptographic tempor signatures. ed25519 magna keypair culpa, elliptic perspiciatis handshake ut zero-knowledge proof. decentralized login elit mnemonic seed tempor recovery phrase. DID magna alias culpa federation, lorem oauth2 perspiciatis antiquated.`,
+	`lorem authlocal dolor sit amet, user-sovereign identity elit, cryptographic tempor signatures. ed25519 magna keypair culpa, elliptic perspiciatis handshake ut zero-knowledge proof. decentralized login elit mnemonic seed tempor recovery phrase. did magna alias culpa federation, lorem oauth2 perspiciatis antiquated.`,
 
 	`lorem webgpu dolor sit amet, fragment shader elit vertex buffer tempor pipeline; bindgroup magna sampler culpa, wgsl perspiciatis alignment bug. compute pass workgroup barrier magna, mipmap cascade culpa drawcall instancing overflow. spir-v dolor sit wasm elit, canvas context lost magna; fallback webgl2 perspiciatis, polyfill slowpath dolore, glsl antique culpa extension hell 144hz tearing. command encoder perspiciatis out-of-memory, chromium nightly.`,
 

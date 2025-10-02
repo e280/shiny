@@ -12,6 +12,7 @@ const cssSnippet = `
 	shiny-drawer {
 		--button-size: 2em;
 		--anim-duration: 200ms;
+		--slate-hidden-opacity: 1;
 		--blanket-backdrop-filter: blur(0.5em);
 		--blanket-bg: color-mix(
 			in oklab,

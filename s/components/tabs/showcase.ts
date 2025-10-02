@@ -42,12 +42,9 @@ export const tabsShowcase = () => Showcase({
 					ShinyTabs
 						.props()
 						.children(html\`
-							\${ShinyButton.props()
-								.children("tab1").render()}
-							\${ShinyButton.props()
-								.children("tab2").render()}
-							\${ShinyButton.props()
-								.children("tab3").render()}
+							\${ShinyButton.props().children("tab1").render()}
+							\${ShinyButton.props().children("tab2").render()}
+							\${ShinyButton.props().children("tab3").render()}
 							<div slot=panel>panel1</div>
 							<div slot=panel>panel2</div>
 							<div slot=panel>panel3</div>

@@ -16,7 +16,7 @@ export const copyShowcase = () => Showcase({
 	name: "copy",
 	style: css`
 		.box {
-			> * { font-size: 6em; }
+			> * { font-size: 4em; }
 		}
 	`,
 	exhibits: [
