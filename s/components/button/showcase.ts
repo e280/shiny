@@ -47,7 +47,7 @@ export const buttonShowcase = Showcase({
 			],
 			style: css``,
 			presentation: views => html`
-				${views.ShinyButton.props().attr("gradient", true).children("button").render()}
+				${views.ShinyButton.props().attr("gradient").children("button").render()}
 			`,
 		},
 		{

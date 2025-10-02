@@ -31,7 +31,7 @@ export const Showcase = view(use => (options: {
 					.children(options.exhibits.map(p =>
 						auraViews.ShinyButton
 							.props()
-							.attr("sad", true)
+							.attr("sad")
 							.children(p.label)
 							.render()
 					))

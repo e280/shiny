@@ -40,7 +40,7 @@ export const Demonstration = view(use => (options: {
 					${options.snippets.map(([label]) => (
 						auraViews.ShinyButton
 							.props()
-							.attr("plain", true)
+							.attr("plain")
 							.children(label.button)
 							.render()
 					))}
