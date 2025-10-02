@@ -21,15 +21,16 @@ export const tabsShowcase = () => Showcase({
 		.box {
 			place-content: start start;
 			p { margin-top: 0.5em; }
+			button { padding: 1em; }
 		}
 	`,
 	exhibits: [
 		{
-			label: "tabs",
+			label: "shiny snug",
 			explain: html`<p>button bar. panels optional.</p>`,
 			snippets: [
 				{label: "html", code: `
-					<shiny-tabs>
+					<shiny-tabs snug>
 						<shiny-button>tab1</shiny-button>
 						<shiny-button>tab2</shiny-button>
 						<shiny-button>tab3</shiny-button>
@@ -41,6 +42,7 @@ export const tabsShowcase = () => Showcase({
 				{label: "view", code: `
 					ShinyTabs
 						.props()
+						.attr("snug")
 						.children(html\`
 							\${ShinyButton.props().children("tab1").render()}
 							\${ShinyButton.props().children("tab2").render()}
@@ -57,10 +59,101 @@ export const tabsShowcase = () => Showcase({
 			presentation: views => html`
 				${views.ShinyTabs
 					.props()
+					.attr("snug")
 					.children(html`
 						${views.ShinyButton.props().children("tab1").render()}
 						${views.ShinyButton.props().children("tab2").render()}
 						${views.ShinyButton.props().children("tab3").render()}
+						<p slot=panel class=lipsum>${lip1}</p>
+						<p slot=panel class=lipsum>${lip2}</p>
+						<p slot=panel class=lipsum>${lip3}</p>
+					`)
+					.render()}
+			`,
+		},
+		{
+			label: "regular",
+			explain: html`<p>button bar. panels optional.</p>`,
+			snippets: [
+				{label: "html", code: `
+					<shiny-tabs>
+						<button>tab1</button>
+						<button>tab2</button>
+						<button>tab3</button>
+						<div slot=panel>panel1</div>
+						<div slot=panel>panel2</div>
+						<div slot=panel>panel3</div>
+					</shiny-tabs>
+				`},
+				{label: "view", code: `
+					ShinyTabs
+						.props()
+						.children(html\`
+							<button>tab1</button>
+							<button>tab2</button>
+							<button>tab3</button>
+							<div slot=panel>panel1</div>
+							<div slot=panel>panel2</div>
+							<div slot=panel>panel3</div>
+						\`)
+						.render()
+				`},
+				{label: "css", code: cssSnippet},
+			],
+			style: css``,
+			presentation: views => html`
+				${views.ShinyTabs
+					.props()
+					.children(html`
+						<button>tab1</button>
+						<button>tab2</button>
+						<button>tab3</button>
+						<p slot=panel class=lipsum>${lip1}</p>
+						<p slot=panel class=lipsum>${lip2}</p>
+						<p slot=panel class=lipsum>${lip3}</p>
+					`)
+					.render()}
+			`,
+		},
+		{
+			label: "regular snug",
+			explain: html`<p>button bar. panels optional.</p>`,
+			snippets: [
+				{label: "html", code: `
+					<shiny-tabs snug>
+						<button>tab1</button>
+						<button>tab2</button>
+						<button>tab3</button>
+						<div slot=panel>panel1</div>
+						<div slot=panel>panel2</div>
+						<div slot=panel>panel3</div>
+					</shiny-tabs>
+				`},
+				{label: "view", code: `
+					ShinyTabs
+						.props()
+						.attr("snug")
+						.children(html\`
+							<button>tab1</button>
+							<button>tab2</button>
+							<button>tab3</button>
+							<div slot=panel>panel1</div>
+							<div slot=panel>panel2</div>
+							<div slot=panel>panel3</div>
+						\`)
+						.render()
+				`},
+				{label: "css", code: cssSnippet},
+			],
+			style: css``,
+			presentation: views => html`
+				${views.ShinyTabs
+					.props()
+					.attr("snug")
+					.children(html`
+						<button>tab1</button>
+						<button>tab2</button>
+						<button>tab3</button>
 						<p slot=panel class=lipsum>${lip1}</p>
 						<p slot=panel class=lipsum>${lip2}</p>
 						<p slot=panel class=lipsum>${lip3}</p>

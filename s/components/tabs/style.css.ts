@@ -9,15 +9,18 @@ export default css`@layer view {
 
 slot[part="tabs"] {
 	display: flex;
-
-	&::slotted(*) {
-		border-radius: 0.3em;
-	}
+	flex-wrap: wrap;
 
 	&::slotted([data-active]) {
 		opacity: 1;
 		color: currentColor;
 		text-decoration: underline;
+	}
+}
+
+:host([snug]) slot[part="tabs"] {
+	&::slotted(*) {
+		border-radius: 0.3em;
 	}
 
 	&::slotted(:not([data-last], [data-next-is-active])) {

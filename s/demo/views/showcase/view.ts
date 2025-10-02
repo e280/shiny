@@ -27,6 +27,7 @@ export const Showcase = view(use => (options: {
 			<h2>✨shiny-${options.name}✨</h2>
 			${auraViews.ShinyTabs
 				.props(exhibitTabControl)
+				.attr("snug")
 				.children(options.exhibits.map(p =>
 					auraViews.ShinyButton
 						.props()
@@ -37,6 +38,7 @@ export const Showcase = view(use => (options: {
 				.render()}
 			${auraViews.ShinyTabs
 				.props(themeTabControl)
+				.attr("snug")
 				.children(viewsets.map(([theme]) =>
 					auraViews.ShinyButton
 						.props()

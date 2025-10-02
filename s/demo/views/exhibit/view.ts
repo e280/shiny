@@ -36,7 +36,9 @@ export const Exhibit = view(use => (
 
 			<div class=snippet>
 				<header>
-					${auraViews.ShinyTabs.props(snippetControl)
+					${auraViews.ShinyTabs
+						.props(snippetControl)
+						.attr("snug")
 						.children(exhibit.snippets.map(s =>
 							auraViews.ShinyButton
 								.props()
