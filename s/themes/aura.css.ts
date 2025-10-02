@@ -59,14 +59,14 @@ export const aura = css`@layer overlay {
 
 :host([view="shiny-drawer"]:not([plain])) {
 	display: block;
+	--slate-bg: linear-gradient(
+		to top right,
+		color-mix(in oklab, var(--calm), #222 50%),
+		color-mix(in oklab, var(--calm), #888 50%)
+	);
 
 	&::part(slate) {
 		padding: 1em;
-		background: linear-gradient(
-			to top right,
-			#00a9dd69,
-			#70ffd77a
-		);
 	}
 }
 

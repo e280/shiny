@@ -19,6 +19,11 @@ const cssSnippet = `
 			transparent,
 			var(--bg)
 		);
+		--slate-bg: linear-gradient(
+			to top right,
+			color-mix(in oklab, var(--calm), #222 50%),
+			color-mix(in oklab, var(--calm), #888 50%)
+		);
 	}
 `
 

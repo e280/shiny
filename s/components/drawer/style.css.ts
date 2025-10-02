@@ -6,6 +6,7 @@ export default css`@layer view {
 	display: block;
 	width: 100%;
 	height: 100%;
+	--slate-bg: transparent;
 	--button-size: 2em;
 	--blanket-backdrop-filter: blur(0.5em);
 	--slate-hidden-opacity: 1;
@@ -64,6 +65,7 @@ export default css`@layer view {
 			display: block;
 			height: 100%;
 			overflow-y: auto;
+			background: var(--slate-bg);
 		}
 
 		> button {
