@@ -8,7 +8,8 @@ export default css`@layer view {
 	gap: 0.5em;
 
 	> * {
-		flex: 1 0 0;
+		flex: 1 1 0;
+		min-width: 0;
 	}
 }
 
@@ -19,12 +20,13 @@ export default css`@layer view {
 }
 
 .snippet {
+	flex: 1 0 auto;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5em;
 	padding: 0.5em;
 
-	background: #0004;
+	background: #0002;
 	box-shadow: inset 0.2em 0.3em 2em #0004;
 	border-radius: 0.5em;
 
@@ -33,8 +35,12 @@ export default css`@layer view {
 		flex-wrap: wrap;
 		align-items: center;
 
-		[view="shiny-tabs"] { flex: 1 1 auto; font-size: 0.8em; color: color-mix(in oklab, transparent, currentColor 50%) }
 		[view="shiny-copy"] { font-size: 1.5em; }
+		[view="shiny-tabs"] {
+			flex: 1 1 auto;
+			font-size: 0.8em;
+			color: color-mix(in oklab, transparent, currentColor 50%);
+		}
 	}
 
 	> code {
@@ -43,7 +49,8 @@ export default css`@layer view {
 		white-space: pre;
 		text-wrap: wrap;
 		tab-size: 2;
-		word-break: break-word;
+		word-break: keep-all;
+		overflow: auto;
 
 		color: var(--code);
 		font-size: 0.8em;
@@ -53,9 +60,12 @@ export default css`@layer view {
 
 .box {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
+	align-content: center;
 
+	gap: 0.5em;
 	padding: 1em;
 
 	border-radius: 0.5rem;

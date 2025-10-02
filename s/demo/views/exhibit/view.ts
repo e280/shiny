@@ -6,8 +6,8 @@ import {CSSResultGroup, html} from "lit"
 import styleCss from "./style.css.js"
 import {auraViews} from "../../viewsets.js"
 import {ShinyViews} from "../../../shiny.js"
+import {TabControl} from "../../../components/tabs/control.js"
 import {foundationCss} from "../../../components/foundation.css.js"
-import { TabControl } from "../../../components/tabs/control.js"
 
 export type ExhibitParams = {
 	label: string
@@ -27,8 +27,8 @@ export const Exhibit = view(use => (
 	use.styles(foundationCss, styleCss, showcaseStyle, exhibit.style)
 
 	const snippetControl = use.once(() => new TabControl())
-	const snippet = exhibit.snippets.at(snippetControl.index)!
-	const code = untab(snippet.code)
+	const snippet = exhibit.snippets.at(snippetControl.index)
+	const code = snippet ? untab(snippet.code).trim() : ""
 
 	return html`
 		<div class=meta>

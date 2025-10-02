@@ -3,6 +3,7 @@ import {css, html} from "lit"
 import {dom, view} from "@e280/sly"
 import {Showcase} from "./views/showcase/view.js"
 import {makeLipsumDispenser} from "./utils/lipsum.js"
+import { buttonShowcase } from "../components/button/showcase.js"
 
 const dispenser = makeLipsumDispenser()
 const lipsum = () => dispenser.takeFirst()
@@ -36,58 +37,7 @@ dom.register({ShinyDemo: view.component(use => {
 	dispenser.takeAll()
 
 	const demonstrations = [
-		Showcase({
-			name: "button",
-			style: css`
-				.box {
-					padding: 1em;
-					> * { font-size: 2em; }
-				}
-			`,
-			exhibits: [
-				{
-					label: "basic",
-					explain: html`<p>clicky-clacky pressy button.</p>`,
-					snippets: [
-						{
-							label: "html",
-							code: `<shiny-button>button</shiny-button>`,
-						},
-						{
-							label: "view",
-							code: `ShinyButton("button")`,
-						},
-					],
-					style: css``,
-					presentation: views => html`
-						${views.ShinyButton.props().children("button").render()}
-					`,
-				},
-				{
-					label: "gradient",
-					explain: html`<p>added <code>gradient</code> attribute.</p>`,
-					snippets: [
-						{
-							label: "html",
-							code: `<shiny-button gradient>button</shiny-button>`,
-						},
-						{
-							label: "view",
-							code: `
-								ShinyButton
-									.props("button")
-									.attr("gradient")
-									.render()
-							`,
-						},
-					],
-					style: css``,
-					presentation: views => html`
-						${views.ShinyButton.props().attr("gradient", true).children("button").render()}
-					`,
-				},
-			],
-		}),
+		buttonShowcase,
 
 	// 	Demonstration({
 	// 		name: "button",
