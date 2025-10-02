@@ -14,7 +14,7 @@
 		"s"
 	],
 	"peerDependencies": {
-		"@e280/sly": "^0.2.0-25",
+		"@e280/sly": "^0.2.0-26",
 		"lit": "^3.3.1"
 	},
 	"dependencies": {
