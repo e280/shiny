@@ -16,6 +16,7 @@ export default css`@layer view {
 .meta {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	gap: 1em;
 }
 
@@ -25,6 +26,7 @@ export default css`@layer view {
 	flex-direction: column;
 	gap: 0.5em;
 	padding: 0.5em;
+	max-height: 20em;
 
 	background: #0002;
 	box-shadow: inset 0.2em 0.3em 2em #0004;
@@ -44,6 +46,7 @@ export default css`@layer view {
 	}
 
 	> code {
+		flex: 1 1 auto;
 		display: block;
 
 		white-space: pre;
