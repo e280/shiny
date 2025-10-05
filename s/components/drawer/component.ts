@@ -24,7 +24,7 @@ export class ShinyDrawer extends (
 		const button = options.button ?? use.attrs.booleans.button
 		const side = options.side ?? (use.attrs.strings.side === "right" ? "right" : "left")
 		const control = use.once(() => (options.control ?? new DrawerControl()))
-		states.assign(side)
+		states.assign(side, control.isOpen ? "opened" : "closed")
 
 		use.mount(() => dom.events(window, {keydown: (event: KeyboardEvent) => {
 			if (event.code === "Escape")
@@ -35,7 +35,7 @@ export class ShinyDrawer extends (
 
 		function renderButton() {
 			return html`
-				<button @click="${control.toggle}">
+				<button part=button @click="${control.toggle}">
 					${control.isOpen
 						? html`
 							<slot name=button-x>

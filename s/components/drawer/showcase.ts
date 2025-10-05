@@ -24,6 +24,19 @@ const cssSnippet = `
 			color-mix(in oklab, var(--calm), #222 50%),
 			color-mix(in oklab, var(--calm), #888 50%)
 		);
+
+		&:state(opened) {}
+		&:state(closed) {}
+
+		&:state(left) {}
+		&:state(right) {}
+
+		&::part(tray) {}
+		&::part(blanket) {}
+		&::part(button) {}
+		&::part(slate) {}
+
+		&::part(plate) {}
 	}
 `
 
