@@ -2,12 +2,11 @@
 ![](https://i.imgur.com/F1J78wH.png)
 
 # ✨shiny✨
-> *web ui components*
+> *sly web ui library*
 
-- 💁 ***see all the components at https://shiny.e280.org/*** 👈
-- 🎭 duality: all components are available as ***web components*** or ***sly views***
+- ▶️ ***see all the components at https://shiny.e280.org/*** 👈
 - 👷 built with [🦝sly](https://github.com/e280/sly) and [🔥lit](https://lit.dev/)
-- 🎨 totally customizable, via theme presets, custom themes, css vars and parts
+- 🎨 customizable via css vars and shadow parts
 - 🧩 using [tabler icons](https://github.com/tabler/tabler-icons)
 - 🧑‍💻 a project by https://e280.org/
 
@@ -15,85 +14,31 @@
 
 <br/><br/>
 
-## 🍭 instant html installation
-- put this in your html `<head>`
-    ```html
-    <script async src="https://shiny.e280.org/install/aura.bundle.min.js"></script>
-    ```
-    - you can swap `aura` there for another theme
-- you're ready to put shiny components in your html `<body>`
-    ```html
-    <shiny-copy text="hello world"></shiny-copy>
-    ```
-- go pick your favorites at https://shiny.e280.org/
-
-
-
-<br/><br/>
-
-## 🍬 web app installation
-- install shiny and friends
-    ```sh
+## 🍭 shiny install and setup
+- install shiny and friends into your project
+    ```bash
     npm install @e280/shiny @e280/sly lit
     ```
-- import stuff
-    ```ts
-    import {dom} from "@e280/sly"
-    import {shiny, themes} from "@e280/shiny"
-    ```
-- prepare the components/views and choose a theme
-    ```ts
-    const {components, views} = shiny({theme: themes.aura})
-    ```
-- (optional) register the components
-    ```ts
-    dom.register(components)
-    ```
-    - or use views instead of components
-- go shopping at https://shiny.e280.org/
-
-
-
-<br/><br/>
-
-## 🎨 themes
-
-- **`aura`** — cosmic dreamy seaside nebula vibes
-- `plain` — bare-bones spartan theme, for diy, buttons look lame
-
-
-
-<br/><br/>
-
-## 😎 views are for the cool kids
-- hey, remember those `views` you got from the web app install snippet?
-- well you can yoink out a view you wanna use
-    ```ts
-    const {ShinyCopy} = views
-    ```
-- then you can use 'em directly in your lit templates
-    ```ts
+- use some shiny views in your lit html
+    ```js
     import {html} from "lit"
-    import {dom, view} from "@e280/sly"
+    import {dom} from "@e280/sly"
+    import {ShinyCopy} from "@e280/shiny"
 
-    dom.register({
-      MyComponent: view.component(use => html`
-        <div>
-          ${ShinyCopy("hello world")}
-        </div>
-      `)
-    })
+    dom.render(dom(".demo"), html`
+      <div>
+        example text
+        ${ShinyCopy("example text")}
+      </div>
+    `)
     ```
-    - you get nice typescript typings
-    - no juggling annoying web component dom registrations
-    - you're just using the shiny views directly
-    - learn more about [🦝sly](https://github.com/e280/sly) and [🔥lit](https://lit.dev/)
+- go shopping for more views at https://shiny.e280.org/
 
 
 
 <br/><br/>
 
-## 💅 page-wide css customization
+## 💅 shiny page-wide css customization
 - put this in your `<head>` and you can customize colors and stuff
     ```html
     <style>
@@ -119,8 +64,4 @@
 ## 🧑‍💻 by e280
 reward us with github stars  
 build with us at https://e280.org/ if you're good at dev  
-
-
-
-<br/><br/>
 
