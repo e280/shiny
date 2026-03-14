@@ -39,7 +39,7 @@ export default template(import.meta.url, async orb => html`
 				<p><a href="https://github.com/e280/shiny#readme">readme for installation</a></p>
 			</section>
 
-			<div class="demo"></div>
+			<div class="gallery"></div>
 		</body>
 	</html>
 `)

@@ -1,11 +1,10 @@
 
 import {html} from "lit"
 import {dom} from "@e280/sly"
-import {ShinyCopy} from "../views/copy/view.js"
+import {copyShowcase} from "../views/copy/showcase.js"
 
-dom.render(dom(".demo"), html`
-	hello
-	${ShinyCopy("hello")}
+dom.render(dom(".gallery"), html`
+	${copyShowcase()}
 `)
 
 console.log("✨shiny✨")

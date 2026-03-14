@@ -10,7 +10,7 @@ section.showcase {
 
 	padding: 1em;
 	border-radius: 0.5em;
-	gap: 1em;
+	gap: 0.5em;
 
 	background: linear-gradient(to right top, #252dd985, #aa6affbd);
 	backdrop-filter: blur(0.5em);
@@ -19,34 +19,44 @@ section.showcase {
 	border-top: 2px solid #fff4;
 
 	&::before {
+		z-index: 0;
 		content: "";
 		display: block;
 		position: absolute;
 		inset: 0;
 		border-radius: 0.5em;
-		background: #0007;
-		width: calc(100% - 0.3em);
-		height: calc(100% - 0.3em);
+		background: #0006;
+		width: calc(100% - 0.5em);
+		height: calc(100% - 0.5em);
 		margin: auto;
-		z-index: 0;
 	}
 
 	> * {
-		position: relative;
 		z-index: 1;
+		position: relative;
 	}
 }
 
 header {
 	display: flex;
 	flex-wrap: wrap;
-	place-content: center center;
+	place-content: center;
 	gap: 0.5em;
 
 	h2 {
 		flex: 1 1 auto;
 		color: var(--prime);
 	}
+}
+
+.sides {
+	display: flex;
+	flex-wrap: wrap;
+	> * {
+		outline: 1px solid #f004;
+		flex: 1 1 0;
+	}
+	background: #0004;
 }
 
 }`
