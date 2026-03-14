@@ -14,8 +14,8 @@
 		"s"
 	],
 	"scripts": {
-		"build": "rm -rf x && mkdir x && tsc && scute -v && ln -s '$(realpath s)' x/s && ln -s '$(realpath assets)' x/assets",
-		"dev": "octo 'tsc -w' 'scute -vw 'node --watch x/test.js' 'hottie x'",
+		"build": "rm -rf x && mkdir x && tsc && scute -v && ln -s \"$(realpath s)\" x/s && ln -s \"$(realpath assets)\" x/assets",
+		"dev": "octo 'tsc -w' 'scute -vw' 'node --watch x/test.js' 'hottie x --debounce 300'",
 		"test": "node x/test.js",
 		"count": "find s -path '*/_archive' -prune -o -name '*.ts' -exec wc -l {} +"
 	},

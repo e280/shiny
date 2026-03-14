@@ -1,5 +1,6 @@
 
 import {template, html, socialCard} from "@e280/scute"
+import {themeString} from "./theme/theme-string.js"
 
 const favicon = "/assets/favicon.png"
 
@@ -14,8 +15,10 @@ export default template(import.meta.url, async orb => html`
 
 			<title>shiny</title>
 			<link rel="icon" href="${favicon}"/>
-			<link rel="stylesheet" href="${orb.hashurl("demo/main.css")}"/>
 			<script type="module" src="${orb.hashurl("demo/main.bundle.min.js")}"></script>
+
+			<style>${themeString}</style>
+			<style>${orb.inject("demo/main.css")}</style>
 
 			${socialCard({
 				themeColor: "#d068ff",
@@ -36,7 +39,7 @@ export default template(import.meta.url, async orb => html`
 				<p><a href="https://github.com/e280/shiny#readme">readme for installation</a></p>
 			</section>
 
-			<shiny-demo></shiny-demo>
+			<div class="demo"></div>
 		</body>
 	</html>
 `)

@@ -1,18 +1,8 @@
 
+import {templateString as css} from "@e280/stz"
+export const coreString = css`
+
 @layer core {
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-
-		scrollbar-width: thin;
-		scrollbar-color: #444 transparent;
-	}
-
-	:not(:defined) {
-		display: none;
-	}
-
 	::selection {
 		color: var(--selection);
 		background-color: var(--selection-bg);
@@ -41,4 +31,6 @@
 		}
 	}
 }
+
+`
 
