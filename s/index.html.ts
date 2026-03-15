@@ -19,6 +19,7 @@ export default template(import.meta.url, async orb => html`
 
 			<style>${themeString}</style>
 			<style>${orb.inject("demo/main.css")}</style>
+			<style data-prism>${orb.inject("$/node_modules/prismjs/themes/prism-tomorrow.css")}</style>
 
 			${socialCard({
 				themeColor: "#d068ff",
