@@ -8,6 +8,7 @@ import {Stylebox} from "../stylebox/view.js"
 import {Exhibit} from "../../parts/exhibit.js"
 import {themeCss} from "../../../theme/theme.css.js"
 import {ShinyTabs} from "../../../views/tabs/view.js"
+import {ShinyButton} from "../../../views/button/view.js"
 import {TabsControl} from "../../../views/tabs/control.js"
 
 export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
@@ -24,9 +25,7 @@ export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
 				<nav>
 					${ShinyTabs.with({
 						props: [{control, snug: true}],
-						children: exhibits.map(exhibit => html`
-							<button>${exhibit.name}</button>
-						`),
+						children: exhibits.map(exhibit => ShinyButton(exhibit.name)),
 					})}
 				</nav>
 			</header>
