@@ -18,7 +18,7 @@ slot[part="tabs"] {
 	}
 }
 
-:host([snug]) slot[part="tabs"] {
+slot[part="tabs"][data-snug] {
 	&::slotted(*) {
 		border-radius: 0.3em;
 	}

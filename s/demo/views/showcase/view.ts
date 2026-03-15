@@ -23,7 +23,7 @@ export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
 				<h2>✨${title}✨</h2>
 				<nav>
 					${ShinyTabs.with({
-						props: [control],
+						props: [{control, snug: true}],
 						children: exhibits.map(exhibit => html`
 							<button>${exhibit.name}</button>
 						`),
