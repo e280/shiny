@@ -64,6 +64,10 @@ header {
 	display: flex;
 	flex-direction: column;
 	gap: var(--padding);
+
+	> * {
+		flex: 1 1 auto;
+	}
 }
 
 .stage {
@@ -72,7 +76,7 @@ header {
 	justify-content: center;
 	align-items: center;
 	padding: 1em;
-	border: 1px dashed currentColor;
+	border: 1px dashed color-mix(in oklch, transparent, currentColor 50%);
 	border-radius: var(--rounded);
 }
 

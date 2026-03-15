@@ -2,10 +2,16 @@
 import {css} from "lit"
 export default css`@layer view {
 
-.box {
+:host {
 	display: flex;
 	flex-direction: column;
-	background: #0004;
+}
+
+.box {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	background: #0003;
 	border-radius: var(--rounded);
 }
 

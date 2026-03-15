@@ -36,8 +36,8 @@ export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
 
 				<div class=sides>
 					<div class=codezone>
-						${Codebox("js", exhibit.js)}
-						${Codebox("css", exhibit.css.toString())}
+						${Codebox("lit-html", "js", exhibit.js)}
+						${Codebox("css", "css", exhibit.css.toString())}
 					</div>
 
 					<div class=stage>

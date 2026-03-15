@@ -10,7 +10,7 @@ import {themeCss} from "../../../theme/theme.css.js"
 import {ShinyCopy} from "../../../views/copy/view.js"
 import {unsafeHTML} from "lit/directives/unsafe-html.js"
 
-export const Codebox = shadow((lang: "js" | "css", code: string) => {
+export const Codebox = shadow((title: string, lang: "js" | "css", code: string) => {
 	const prismStyles = usePrismStyles()
 	useCss(themeCss, prismStyles, styleCss)
 
@@ -26,7 +26,7 @@ export const Codebox = shadow((lang: "js" | "css", code: string) => {
 	return html`
 		<div class=box>
 			<header>
-				<h3 class=title>${lang}</h3>
+				<h3 class=title>${title}</h3>
 				<div class=buttons>${ShinyCopy(code)}</div>
 			</header>
 
