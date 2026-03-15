@@ -1,7 +1,8 @@
 
 import {ShinyCopy} from "./view.js"
 import {exhibit} from "../../demo/parts/exhibit.js"
-import {Showcase} from "../../demo/parts/showcase.js"
+import {Showcase} from "../../demo/views/showcase/view.js"
+import { css } from "lit"
 
 export const copyShowcase = () => Showcase("shiny-copy", [
 
@@ -12,9 +13,9 @@ export const copyShowcase = () => Showcase("shiny-copy", [
 		js: `
 			ShinyCopy("hello world")
 		`,
-		css: `
+		css: css`
 			[view="shiny-copy"] {
-				font-size: 1em;
+				font-size: 5em;
 				--happy: #0fa;
 				--angry: #f50;
 				--lame: #8888;
@@ -30,9 +31,9 @@ export const copyShowcase = () => Showcase("shiny-copy", [
 		js: `
 			ShinyCopy("hello world", {fail: true})
 		`,
-		css: `
+		css: css`
 			[view="shiny-copy"] {
-				font-size: 1em;
+				font-size: 5em;
 				--happy: #0fa;
 				--angry: #f50;
 				--lame: #8888;

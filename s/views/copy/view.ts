@@ -51,6 +51,7 @@ export const ShinyCopy = shadow((
 				default:
 					throw new Error(`unknown copy status`)
 			}})()}
+			<slot></slot>
 		</button>
 	`
 })

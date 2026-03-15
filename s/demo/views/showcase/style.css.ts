@@ -9,8 +9,8 @@ section.showcase {
 	flex-direction: column;
 
 	padding: 1em;
-	border-radius: 0.5em;
-	gap: 0.5em;
+	border-radius: var(--rounded);
+	gap: var(--padding);
 
 	background: linear-gradient(to right top, #252dd985, #aa6affbd);
 	backdrop-filter: blur(0.5em);
@@ -24,10 +24,10 @@ section.showcase {
 		display: block;
 		position: absolute;
 		inset: 0;
-		border-radius: 0.5em;
+		border-radius: var(--rounded);
 		background: #0006;
-		width: calc(100% - 0.5em);
-		height: calc(100% - 0.5em);
+		width: calc(100% - var(--padding));
+		height: calc(100% - var(--padding));
 		margin: auto;
 	}
 
@@ -41,7 +41,7 @@ header {
 	display: flex;
 	flex-wrap: wrap;
 	place-content: center;
-	gap: 0.5em;
+	gap: var(--padding);
 
 	h2 {
 		flex: 1 1 auto;
@@ -52,11 +52,28 @@ header {
 .sides {
 	display: flex;
 	flex-wrap: wrap;
+	gap: var(--padding);
+
 	> * {
-		outline: 1px solid #f004;
 		flex: 1 1 0;
 	}
-	background: #0004;
+
+}
+
+.codezone {
+	display: flex;
+	flex-direction: column;
+	gap: var(--padding);
+}
+
+.stage {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1em;
+	border: 1px dashed currentColor;
+	border-radius: var(--rounded);
 }
 
 }`

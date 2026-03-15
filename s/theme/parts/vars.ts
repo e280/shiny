@@ -7,6 +7,9 @@ export const varsString = css`@layer vars {
 		"bg": "#111",
 		"alpha": "#def",
 
+		"rounded": "0.5em",
+		"padding": "0.5em",
+
 		"prime": "#d068ff",
 		"code": "#3f1",
 		"link": "cyan",
