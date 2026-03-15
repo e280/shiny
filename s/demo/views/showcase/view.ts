@@ -8,13 +8,13 @@ import {Stylebox} from "../stylebox/view.js"
 import {Exhibit} from "../../parts/exhibit.js"
 import {themeCss} from "../../../theme/theme.css.js"
 import {ShinyTabs} from "../../../views/tabs/view.js"
-import {TabControl} from "../../../views/tabs/control.js"
+import {TabsControl} from "../../../views/tabs/control.js"
 
 export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
 	useName("showcase")
 	useCss(themeCss, showcaseCss)
 
-	const control = useOnce(() => new TabControl())
+	const control = useOnce(() => new TabsControl())
 	const exhibit = exhibits.at(control.index)
 
 	return html`

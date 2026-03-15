@@ -1,6 +1,8 @@
 
-import {html} from "lit"
 import Prism from "prismjs"
+import "prismjs/components/prism-js-templates"
+
+import {html} from "lit"
 import {untab} from "@e280/stz"
 import {shadow, useCss} from "@e280/sly"
 

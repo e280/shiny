@@ -20,7 +20,7 @@ slot[part="tabs"] {
 
 slot[part="tabs"][data-snug] {
 	&::slotted(*) {
-		border-radius: 0.3em;
+		border-radius: var(--rounded);
 	}
 
 	&::slotted(:not([data-last], [data-next-is-active])) {

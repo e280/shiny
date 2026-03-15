@@ -2,12 +2,12 @@
 import {html} from "lit"
 import {dom, shadow, useHost, useName, useOnce, useSignal, useStyles} from "@e280/sly"
 import styleCss from "./style.css.js"
-import {TabControl} from "./control.js"
+import {TabsControl} from "./control.js"
 import {themeCss} from "../../theme/theme.css.js"
 
 export const ShinyTabs = shadow((options: {
 		snug?: boolean
-		control?: TabControl
+		control?: TabsControl
 	} = {}) => {
 
 	useName("shiny-tabs")
@@ -15,7 +15,7 @@ export const ShinyTabs = shadow((options: {
 
 	const host = useHost()
 	const attrs = useOnce(() => dom.attrs(host).spec({index: Number}))
-	const control = useOnce(() => options.control ?? new TabControl(attrs.index ?? 0))
+	const control = useOnce(() => options.control ?? new TabsControl(attrs.index ?? 0))
 
 	const $tabs = useSignal<HTMLElement[]>([])
 	const $panels = useSignal<HTMLElement[]>([])

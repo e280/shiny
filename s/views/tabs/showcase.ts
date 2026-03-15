@@ -7,7 +7,7 @@ import {Showcase} from "../../demo/views/showcase/view.js"
 export const tabsShowcase = () => Showcase("ShinyTabs", [
 	exhibit({
 		name: "normal",
-		explain: "tabs.",
+		explain: "a button-bar of mutually-exclusive tabs. panels are optional.",
 		render: () => ShinyTabs.with({
 			props: [{snug: true}],
 			children: html`
@@ -34,6 +34,7 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 		`,
 		css: css`
 			[view="shiny-tabs"] {
+				--shiny-rounded: 0.5em;
 			}
 		`,
 	}),

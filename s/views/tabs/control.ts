@@ -1,7 +1,7 @@
 
 import {signal} from "@e280/strata"
 
-export class TabControl {
+export class TabsControl {
 	length = 1
 	$index = signal(0)
 
