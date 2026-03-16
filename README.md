@@ -23,12 +23,13 @@
     ```js
     import {html} from "lit"
     import {dom} from "@e280/sly"
-    import {ShinyCopy} from "@e280/shiny"
+    import {ShinyButton, ShinyCopy} from "@e280/shiny"
 
     dom.render(dom(".demo"), html`
       <div>
         example text
-        ${ShinyCopy("example text")}
+        ${ShinyButton("e280")}
+        ${ShinyCopy("hello world")}
       </div>
     `)
     ```
@@ -38,21 +39,33 @@
 
 <br/><br/>
 
-## 💅 shiny page-wide css customization
-- put this in your `<head>` and you can customize colors and stuff
+## 💅 shiny css customization
+- put this in your `<head>`
     ```html
     <style>
       html {
         --shiny-bg: #111;
         --shiny-alpha: #def;
+
+        --shiny-rounded: 0.5em;
+        --shiny-padding: 0.5em;
+
+        --shiny-prime: #d068ff;
+        --shiny-code: #3f1;
+        --shiny-link: cyan;
+        --shiny-selection: white;
+        --shiny-selection-bg: #f70;
+
         --shiny-lame: #8888;
-        --shiny-inactive-opacity: 0.5;
         --shiny-angry: #f50;
         --shiny-zesty: #cf0;
         --shiny-happy: #0fa;
         --shiny-calm: #0af;
         --shiny-sad: #74f;
         --shiny-quirky: #f49;
+
+        --shiny-inactive-opacity: 0.5;
+        --shiny-anim-duration: 300ms;
       }
     </style>
     ```
