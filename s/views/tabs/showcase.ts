@@ -2,6 +2,7 @@
 import {css, html} from "lit"
 import {ShinyTabs} from "./view.js"
 import {ShinyButton} from "../button/view.js"
+import {lipsum} from "../../demo/utils/lipsum.js"
 import {exhibit} from "../../demo/parts/exhibit.js"
 import {Showcase} from "../../demo/views/showcase/view.js"
 
@@ -15,15 +16,14 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 				${ShinyButton("alpha")}
 				${ShinyButton("bravo")}
 				${ShinyButton("charlie")}
-				<div slot=panel>alpha</div>
-				<div slot=panel>bravo</div>
-				<div slot=panel>charlie</div>
+				<p slot=panel>${lipsum.takeFirst()}</p>
+				<p slot=panel>${lipsum.takeFirst()}</p>
+				<p slot=panel>${lipsum.takeFirst()}</p>
 			`,
 		}),
 		styleboxCss: css`
-			:host {
-				font-size: 1.5em;
-			}
+			[view="shiny-button"] { font-size: 1.5em; }
+			p { margin-top: var(--padding); }
 		`,
 		js: `
 			ShinyTabs.with({
@@ -32,9 +32,9 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 					\${ShinyButton("alpha")}
 					\${ShinyButton("bravo")}
 					\${ShinyButton("charlie")}
-					<div slot=panel>alpha</div>
-					<div slot=panel>bravo</div>
-					<div slot=panel>charlie</div>
+					<p slot=panel>lorem kettlebell..</p>
+					<p slot=panel>lorem protein..</p>
+					<p slot=panel>lorem caffeine..</p>
 				\`,
 			})
 		`,
@@ -54,17 +54,15 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 				<button>alpha</button>
 				<button>bravo</button>
 				<button>charlie</button>
-				<div slot=panel>alpha</div>
-				<div slot=panel>bravo</div>
-				<div slot=panel>charlie</div>
+				<p slot=panel>${lipsum.takeFirst()}</p>
+				<p slot=panel>${lipsum.takeFirst()}</p>
+				<p slot=panel>${lipsum.takeFirst()}</p>
 			`,
 		}),
 		styleboxCss: css`
-			:host {
-				font-size: 1.5em;
-			}
+			p { margin-top: var(--padding); }
 			button {
-				font-size: inherit;
+				font-size: 1.5em;
 				padding: calc(var(--padding) / 2);
 			}
 		`,
@@ -75,9 +73,9 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 					<button>alpha</button>
 					<button>bravo</button>
 					<button>charlie</button>
-					<div slot=panel>alpha</div>
-					<div slot=panel>bravo</div>
-					<div slot=panel>charlie</div>
+					<p slot=panel>lorem kettlebell..</p>
+					<p slot=panel>lorem protein..</p>
+					<p slot=panel>lorem caffeine..</p>
 				\`,
 			})
 		`,

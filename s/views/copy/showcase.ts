@@ -11,7 +11,7 @@ export const copyShowcase = () => Showcase("ShinyCopy", [
 		render: () => ShinyCopy("hello world"),
 		styleboxCss: css`
 			:host {
-				font-size: 4em;
+				font-size: 5em;
 			}
 		`,
 		js: `
