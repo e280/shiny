@@ -29,9 +29,9 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 			ShinyTabs.with({
 				props: [{snug: true}],
 				children: html\`
-					<button>alpha</button>
-					<button>bravo</button>
-					<button>charlie</button>
+					\${ShinyButton("alpha")}
+					\${ShinyButton("bravo")}
+					\${ShinyButton("charlie")}
 					<div slot=panel>alpha</div>
 					<div slot=panel>bravo</div>
 					<div slot=panel>charlie</div>

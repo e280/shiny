@@ -30,8 +30,7 @@ export const copyShowcase = () => Showcase("ShinyCopy", [
 	exhibit({
 		name: "fail",
 		explain: html`
-			<p>click-to-copy button.</p>
-			<em>deliberately fails so you can see.</em>
+			<p>click-to-copy button. <em>deliberately fails so you can see.</em></p>
 		`,
 		render: () => ShinyCopy("hello world", {fail: true}),
 		styleboxCss: css`

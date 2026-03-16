@@ -96,14 +96,6 @@ button {
 	--button-color: var(--lame);
 }
 
-:host([data-snug]:not([data-last], [data-next-is-tabbed])) > button {
-	border-right: none;
-}
-
-:host([data-snug][data-tabbed]:not([data-first])) > button {
-	border-left: none;
-}
-
 :host([data-snug]:not([data-last])) > button {
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
