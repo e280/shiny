@@ -10,6 +10,9 @@
 
 ## v0.1
 
-### v0.1.0
+### v0.1.0-16
+- 🟥 huge project rewrite -- web components are gone -- everything is new sly shadow views
+
+### v0.1.0-15
 - 🍏 initial release
 
