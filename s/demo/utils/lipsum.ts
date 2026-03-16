@@ -1,7 +1,7 @@
 
 import {Dispenser} from "@e280/stz"
 
-export const makeLipsumDispenser = () => new Dispenser(() => [
+export const lipsum = new Dispenser(() => [
 	`lorem kettlebell dolor sit amet, mountain squats consectetur trail-running. adipiscing deadlift elit, sed do 45lb turkish get-up eiusmod tempor incididunt ut hike magna aliqua. ut enim ad minim clean & press, quis nostrud exercitation lunges ullamco kettlebell snatch trailhead nisi ut aliquip ex dolore summit irure dolor.`,
 
 	`lorem protein dolor sit amet, creatine scoop elit shaker bottle tempor. grilled steak magna keto-fasting culpa, carb-loading perspiciatis cheat day. whey isolate dolor sit macros elit, intermittent fasting tempor electrolyte magna; barefoot shoes culpa, liver perspiciatis ancestral squat rack gospel. lorem bulking dolor sit cut elit, tdee tracker tempor calorie deficit magna; chicken breast culpa gatorade perspiciatis meal prep.`,

@@ -35,7 +35,7 @@ header {
 code {
 	padding: calc(var(--padding) / 4) var(--padding);
 	color: var(--code);
-	white-space: pre;
+	white-space: pre-wrap;
 	tab-size: 2;
 }
 
