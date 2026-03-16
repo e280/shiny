@@ -40,21 +40,22 @@ export const ShinyTabs = shadow((options: {
 	}
 
 	for (const [index, tab] of $tabs().entries()) {
-		const active = (index === control.index)
+		const tabbed = (index === control.index)
 		const tabAttrs = dom.attrs(tab)
-		tabAttrs.booleans.disabled = active
-		tabAttrs.booleans["data-active"] = active
+		tabAttrs.booleans.disabled = tabbed
+		tabAttrs.booleans["data-snug"] = options.snug
+		tabAttrs.booleans["data-tabbed"] = tabbed
 		tabAttrs.booleans["data-first"] = (index === 0)
 		tabAttrs.booleans["data-last"] = (index === (control.length - 1))
-		tabAttrs.booleans["data-next-is-active"] = isNeighborActive(index, 1)
-		tabAttrs.booleans["data-previous-is-active"] = isNeighborActive(index, -1)
+		tabAttrs.booleans["data-next-is-tabbed"] = isNeighborActive(index, 1)
+		tabAttrs.booleans["data-previous-is-tabbed"] = isNeighborActive(index, -1)
 		tab.onclick = () => control.setIndex(index)
 	}
 
 	for (const [index, panel] of $panels().entries()) {
-		const active = (index === control.index)
-		dom.attrs(panel).booleans["data-active"] = active
-		dom.attrs(panel).booleans["hidden"] = !active
+		const tabbed = (index === control.index)
+		dom.attrs(panel).booleans["data-tabbed"] = tabbed
+		dom.attrs(panel).booleans["hidden"] = !tabbed
 	}
 
 	return html`

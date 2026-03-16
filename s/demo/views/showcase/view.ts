@@ -1,5 +1,5 @@
 
-import {html} from "lit"
+import {css, html} from "lit"
 import {shadow, useCss, useName, useOnce} from "@e280/sly"
 
 import showcaseCss from "./style.css.js"
@@ -31,16 +31,16 @@ export const Showcase = shadow((title: string, exhibits: Exhibit[]) => {
 			</header>
 
 			${exhibit && html`
-				<p class=explain>${exhibit.explain}</p>
+				<div class=explain>${exhibit.explain}</div>
 
 				<div class=sides>
 					<div class=codezone>
 						${Codebox("lit-html", "js", exhibit.js)}
-						${Codebox("css", "css", exhibit.css.toString())}
+						${exhibit.css && Codebox("css", "css", exhibit.css.toString())}
 					</div>
 
 					<div class=stage>
-						${Stylebox(exhibit.css, exhibit.render)}
+						${Stylebox(exhibit.styleboxCss, exhibit.css ?? css``, exhibit.render())}
 					</div>
 				</div>
 			`}

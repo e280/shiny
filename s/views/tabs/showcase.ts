@@ -20,6 +20,11 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 				<div slot=panel>charlie</div>
 			`,
 		}),
+		styleboxCss: css`
+			:host {
+				font-size: 1.5em;
+			}
+		`,
 		js: `
 			ShinyTabs.with({
 				props: [{snug: true}],
@@ -41,7 +46,7 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 	}),
 
 	exhibit({
-		name: "normal",
+		name: "plain",
 		explain: "a button-bar of mutually-exclusive tabs. panels are optional.",
 		render: () => ShinyTabs.with({
 			props: [{snug: true}],
@@ -54,6 +59,15 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 				<div slot=panel>charlie</div>
 			`,
 		}),
+		styleboxCss: css`
+			:host {
+				font-size: 1.5em;
+			}
+			button {
+				font-size: inherit;
+				padding: calc(var(--padding) / 2);
+			}
+		`,
 		js: `
 			ShinyTabs.with({
 				props: [{snug: true}],

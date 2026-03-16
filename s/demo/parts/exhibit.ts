@@ -4,10 +4,11 @@ import {CSSResult} from "lit"
 
 export type Exhibit = {
 	name: string
-	explain: string
+	explain: Content
 	render: () => Content
 	js: string
-	css: CSSResult
+	css?: CSSResult
+	styleboxCss: CSSResult
 }
 
 export const exhibit = (e: Exhibit) => e

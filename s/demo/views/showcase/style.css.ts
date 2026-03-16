@@ -73,9 +73,9 @@ header {
 .stage {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: start;
 	align-items: center;
-	padding: 1em;
+	padding: calc(var(--padding) * 2) var(--padding);
 	border: 1px dashed color-mix(in oklch, transparent, currentColor 50%);
 	border-radius: var(--rounded);
 }

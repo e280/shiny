@@ -11,7 +11,7 @@ slot[part="tabs"] {
 	display: flex;
 	flex-wrap: wrap;
 
-	&::slotted([data-active]) {
+	&::slotted([data-tabbed]) {
 		opacity: 1;
 		color: currentColor;
 		text-decoration: underline;
@@ -23,11 +23,11 @@ slot[part="tabs"][data-snug] {
 		border-radius: var(--rounded);
 	}
 
-	&::slotted(:not([data-last], [data-next-is-active])) {
+	&::slotted(:not([data-last], [data-next-is-tabbed])) {
 		border-right: none;
 	}
 
-	&::slotted([data-active]:not([data-first])) {
+	&::slotted([data-tabbed]:not([data-first])) {
 		border-left: none;
 	}
 

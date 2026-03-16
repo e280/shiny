@@ -1,5 +1,5 @@
 
-import {css} from "lit"
+import {css, html} from "lit"
 import {ShinyCopy} from "./view.js"
 import {exhibit} from "../../demo/parts/exhibit.js"
 import {Showcase} from "../../demo/views/showcase/view.js"
@@ -9,12 +9,16 @@ export const copyShowcase = () => Showcase("ShinyCopy", [
 		name: "normal",
 		explain: "click-to-copy button.",
 		render: () => ShinyCopy("hello world"),
+		styleboxCss: css`
+			:host {
+				font-size: 4em;
+			}
+		`,
 		js: `
 			ShinyCopy("hello world")
 		`,
 		css: css`
 			[view="shiny-copy"] {
-				font-size: 5em;
 				--shiny-happy: #0fa;
 				--shiny-angry: #f50;
 				--shiny-lame: #8888;
@@ -25,14 +29,21 @@ export const copyShowcase = () => Showcase("ShinyCopy", [
 
 	exhibit({
 		name: "fail",
-		explain: "click-to-copy button, deliberately fails so you can see.",
+		explain: html`
+			<p>click-to-copy button.</p>
+			<em>deliberately fails so you can see.</em>
+		`,
 		render: () => ShinyCopy("hello world", {fail: true}),
+		styleboxCss: css`
+			:host {
+				font-size: 4em;
+			}
+		`,
 		js: `
 			ShinyCopy("hello world", {fail: true})
 		`,
 		css: css`
 			[view="shiny-copy"] {
-				font-size: 5em;
 				--shiny-happy: #0fa;
 				--shiny-angry: #f50;
 				--shiny-lame: #8888;
