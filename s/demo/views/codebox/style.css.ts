@@ -13,6 +13,7 @@ export default css`@layer view {
 	flex-direction: column;
 	background: #0003;
 	border-radius: var(--rounded);
+	backdrop-filter: blur(0.5em);
 }
 
 header {
