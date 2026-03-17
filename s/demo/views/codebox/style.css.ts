@@ -36,8 +36,9 @@ header {
 code {
 	padding: calc(var(--padding) / 4) var(--padding);
 	color: var(--code);
-	white-space: pre-wrap;
+	white-space: pre;
 	tab-size: 2;
+	overflow-x: auto;
 }
 
 }`
