@@ -22,7 +22,7 @@ export const tabsShowcase = () => Showcase("ShinyTabs", [
 			`,
 		}),
 		styleboxCss: css`
-			[view="shiny-button"] { font-size: 1.5em; }
+			[view="shiny-button"] { font-size: 1.2em; }
 			p { margin-top: var(--padding); }
 		`,
 		js: `
