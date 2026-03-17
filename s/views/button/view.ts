@@ -7,6 +7,7 @@ import {themeCss} from "../../theme/theme.css.js"
 
 export const ShinyButton = shadow((content?: Content, options: {
 		vibe?: "calm" | "lame" | "happy" | "sad" | "angry" | "zesty" | "quirky"
+		onClick?: (event: PointerEvent) => void
 	} = {}) => {
 
 	useName("shiny-button")
@@ -22,7 +23,8 @@ export const ShinyButton = shadow((content?: Content, options: {
 			part=button
 			data-vibe="${options.vibe ?? "calm"}"
 			?disabled="${attrs.disabled}"
-			?hidden="${attrs.hidden}">
+			?hidden="${attrs.hidden}"
+			@click="${options.onClick}">
 			<slot>${content}</slot>
 		</button>
 	`
