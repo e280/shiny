@@ -10,14 +10,19 @@ button {
 
 button {
 	opacity: var(--inactive-opacity);
-	cursor: pointer;
-	cursor: copy;
+	display: flex;
+	align-items: center;
 
+	cursor: copy;
 	color: inherit;
-	transition: all 300ms linear;
+	transition: all var(--anim-duration) linear;
 
 	&:is(:hover, :focus-visible) {
 		opacity: 1;
+	}
+
+	> span {
+		display: flex;
 	}
 }
 

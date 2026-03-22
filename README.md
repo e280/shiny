@@ -65,7 +65,7 @@
         --shiny-quirky: #f49;
 
         --shiny-inactive-opacity: 0.5;
-        --shiny-anim-duration: 300ms;
+        --shiny-anim-duration: 150ms;
       }
     </style>
     ```

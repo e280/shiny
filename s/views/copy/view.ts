@@ -34,23 +34,25 @@ export const ShinyCopy = shadow((
 	}
 
 	return html`
-		<button data-status="${copier.status}" @click="${click}">
-			${(() => {switch (copier.status) {
-				case "neutral":
-					return clipboardSvg
+		<button data-status="${copier.status}" @click="${click}" part=button>
+			<span part=icon>
+				${(() => {switch (copier.status) {
+					case "neutral":
+						return clipboardSvg
 
-				case "invalid":
-					return clipboardSvg
+					case "invalid":
+						return clipboardSvg
 
-				case "good":
-					return clipboardCheckFilledSvg
+					case "good":
+						return clipboardCheckFilledSvg
 
-				case "bad":
-					return clipboardXFilledSvg
+					case "bad":
+						return clipboardXFilledSvg
 
-				default:
-					throw new Error(`unknown copy status`)
-			}})()}
+					default:
+						throw new Error(`unknown copy status`)
+				}})()}
+			</span>
 			<slot></slot>
 		</button>
 	`

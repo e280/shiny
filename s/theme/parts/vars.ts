@@ -25,7 +25,7 @@ export const varsString = css`@layer vars {
 		"quirky": "#f49",
 
 		"inactive-opacity": "0.5",
-		"anim-duration": "300ms",
+		"anim-duration": "150ms",
 	})}
 }
 
