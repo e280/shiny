@@ -20,22 +20,22 @@
 		"count": "find s -path '*/_archive' -prune -o -name '*.ts' -exec wc -l {} +"
 	},
 	"peerDependencies": {
-		"@e280/sly": "^0.3.0-10",
+		"@e280/sly": "^0.3.7",
 		"lit": "^3.3.2"
 	},
 	"dependencies": {
-		"@e280/strata": "^0.3.0-2",
-		"@e280/stz": "^0.2.24",
+		"@e280/strata": "^0.3.3",
+		"@e280/stz": "^0.2.32",
 		"prismjs": "^1.30.0"
 	},
 	"devDependencies": {
-		"@e280/hottie": "^0.1.0-4",
-		"@e280/octo": "^0.1.0-12",
-		"@e280/science": "^0.1.8",
-		"@e280/scute": "^0.3.0-1",
+		"@e280/hottie": "^0.1.0",
+		"@e280/octo": "^0.1.0",
+		"@e280/science": "^0.1.10",
+		"@e280/scute": "^0.3.2",
 		"@types/prismjs": "^1.26.6",
 		"http-server": "^14.1.1",
-		"typescript": "^5.9.3"
+		"typescript": "^6.0.3"
 	},
 	"author": "Chase Moskal <chasemoskal@gmail.com>",
 	"homepage": "https://github.com/e280/shiny#readme",
