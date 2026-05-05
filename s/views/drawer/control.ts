@@ -5,15 +5,15 @@ export class DrawerControl {
 	$open = signal(false)
 
 	constructor(startOpen = false) {
-		if (startOpen) this.$open.set(true)
+		if (startOpen) this.$open(true)
 	}
 
 	get isOpen() {
-		return this.$open.get()
+		return this.$open()
 	}
 
 	async setOpen(value: boolean) {
-		return this.$open.set(value)
+		return this.$open(value)
 	}
 
 	open = async() => {

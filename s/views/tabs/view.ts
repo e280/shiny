@@ -20,14 +20,14 @@ export const ShinyTabs = shadow((options: {
 	const $tabs = useSignal<HTMLElement[]>([])
 	const $panels = useSignal<HTMLElement[]>([])
 
-	async function tabchange(event: Event) {
+	function tabchange(event: Event) {
 		const slot = event.currentTarget! as HTMLSlotElement
-		await $tabs.set(slot.assignedElements() as HTMLElement[])
+		$tabs(slot.assignedElements() as HTMLElement[])
 	}
 
-	async function panelchange(event: Event) {
+	function panelchange(event: Event) {
 		const slot = event.currentTarget! as HTMLSlotElement
-		await $panels.set(slot.assignedElements() as HTMLElement[])
+		$panels(slot.assignedElements() as HTMLElement[])
 	}
 
 	attrs.index = control.$index()

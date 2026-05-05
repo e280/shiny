@@ -6,7 +6,7 @@ export class TabsControl {
 	$index = signal(0)
 
 	constructor(start = 0) {
-		this.$index.value = start
+		this.$index(start)
 	}
 
 	clamp(index: number) {

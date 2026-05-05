@@ -8,10 +8,10 @@ import {determineBaseStatus} from "./determine-base-status.js"
 export function useCopier(text: string | undefined, ms: number) {
 	const $status = useSignal<CopyStatus>(determineBaseStatus(text))
 
-	const reset = useOnce(() => debounce(ms, () => $status.set(determineBaseStatus(text))))
+	const reset = useOnce(() => debounce(ms, () => $status(determineBaseStatus(text))))
 
 	const flash = useOnce(() => async(status: CopyStatus) => {
-		await $status.set(status)
+		$status(status)
 		await reset()
 	})
 
