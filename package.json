@@ -24,15 +24,15 @@
 		"lit": "^3.3.3"
 	},
 	"dependencies": {
-		"@e280/strata": "^0.5.3",
-		"@e280/stz": "^0.4.5",
+		"@e280/strata": "^0.5.6",
+		"@e280/stz": "^0.4.13",
 		"prismjs": "^1.30.0"
 	},
 	"devDependencies": {
-		"@e280/hottie": "^0.1.5",
-		"@e280/octo": "^0.1.6",
-		"@e280/science": "^0.1.12",
-		"@e280/scute": "^0.5.2",
+		"@e280/hottie": "^0.1.7",
+		"@e280/octo": "^0.1.7",
+		"@e280/science": "^0.1.14",
+		"@e280/scute": "^0.5.4",
 		"@types/prismjs": "^1.26.6",
 		"http-server": "^14.1.1",
 		"typescript": "^7.0.2"
